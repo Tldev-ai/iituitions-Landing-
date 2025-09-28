@@ -766,6 +766,30 @@
 /* FAQ: hide answers by default; show only on click */
 #faqs .acc-b { display:none; }
 #faqs .accordion.open .acc-b { display:inline-block; }  /* keeps the white card centered */
+      <style>
+/* MOBILE: stack How It Works images one per row */
+@media (max-width: 768px){
+  .how-photos{
+    display:block;          /* stop the flex grid on phones */
+    max-width:100%;
+    margin:12px 0;
+    padding:0 12px;         /* same container side padding */
+  }
+  .how-photos img{
+    display:block;
+    width:100%;             /* full-bleed inside container */
+    height:auto;            /* keep aspect ratio */
+    margin:0 0 12px;        /* gap between images */
+    border-radius:12px;     /* optional: keep your rounded corners */
+    flex:none;              /* cancel flex sizing from desktop rules */
+    max-width:none;         /* ensure no leftover width cap */
+    aspect-ratio:auto;      /* avoid forced crop on tiny screens */
+    object-fit:cover;       /* look good for mixed sizes */
+  }
+  .how-photos img:last-child{ margin-bottom:0; }
+}
+</style>
+
 
     </style>
 
