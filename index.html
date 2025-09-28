@@ -543,6 +543,51 @@
   margin:14px auto 2px;
   box-shadow:0 10px 24px rgba(0,0,0,.10);
 }
+/* How It Works — responsive image strip (touching edges) */
+.how-photos{
+  display:flex;
+  flex-wrap:wrap;            /* allow rows on small screens */
+  justify-content:center;    /* center the whole block */
+  align-items:stretch;
+  gap:0;                     /* no gaps between images */
+  margin:16px auto;
+  max-width:1200px;          /* aligns with your site width */
+}
+
+.how-photos img{
+  display:block;             /* kills inline whitespace gaps */
+  flex:0 0 20%;
+  max-width:20%;             /* 5 in a row on large screens */
+  aspect-ratio:4/5;
+  object-fit:cover;
+  margin:0; padding:0; border:0;
+}
+
+/* ── tablet landscape / small desktop: 3 per row ── */
+@media (max-width: 1024px){
+  .how-photos img{
+    flex-basis:33.333%;
+    max-width:33.333%;
+  }
+}
+
+/* ── tablets / larger phones: 2 per row ── */
+@media (max-width: 768px){
+  .how-photos img{
+    flex-basis:50%;
+    max-width:50%;
+  }
+}
+
+/* ── small phones: 1 per row ── */
+@media (max-width: 480px){
+  .how-photos img{
+    flex-basis:100%;
+    max-width:100%;
+    aspect-ratio:auto;       /* avoid over-tall crops on tiny screens */
+    object-fit:cover;        /* keep fill; change to 'contain' if you prefer */
+  }
+}
 
 
 
@@ -621,23 +666,21 @@
   </section>
 
 
-
-
-
-
-
+<div class="container">
   <div class="how-photos" aria-label="How It Works — image strip">
-  <img src="How1.jpg" alt="How it works image 1">
-  <img src="How2.jpg" alt="How it works image 2">
-  <img src="How3.jpg" alt="How it works image 3">
-  <img src="How4.jpg" alt="How it works image 4">
-  <img src="How5.jpg" alt="How it works image 5">
+    <img src="How1.jpg" alt="How it works image 1">
+    <img src="How2.jpg" alt="How it works image 2">
+    <img src="How3.jpg" alt="How it works image 3">
+    <img src="How4.jpg" alt="How it works image 4">
+    <img src="How5.jpg" alt="How it works image 5">
+  </div>
 </div>
 
 
 
 
 
+  
 
           <!-- Assessment accordion -->
           <div class="accordion" id="examAcc">
