@@ -554,6 +554,15 @@
   box-shadow:0 10px 24px rgba(0,0,0,.10);
 }
 /* How It Works — responsive image strip (touching edges) */
+    /* Make the strip horizontal on desktop */
+.how-photos{
+  display:flex;
+  flex-wrap:wrap;        /* lets them wrap to the next line if needed */
+  gap:12px;              /* space between images */
+  justify-content:center;/* center the row */
+  align-items:flex-start;
+}
+
 .how-photos img{
   display:block;             /* kills inline whitespace gaps */
   flex:0 0 20%;
