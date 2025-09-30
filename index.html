@@ -564,16 +564,21 @@
 }
 
 .how-photos img{
-  display:block;             /* kills inline whitespace gaps */
-  flex:0 0 20%;
-  max-width:20%;             /* 5 in a row on large screens */
-  /* remove the forced crop: */
-  height:auto;               /* ✅ let images keep their own height */
-  aspect-ratio:auto;         /* ✅ stop 4/5 cropping */
-  object-fit:contain;        /* ✅ show the whole image */
+  display:block;
+  /* 5 equal tiles per row with your 12px gap */
+  flex:0 0 calc((100% - 4*12px)/5);
+  max-width:calc((100% - 4*12px)/5);
+
+  /* force identical visual size */
+  aspect-ratio: 16 / 9;   /* tweak to 4/3 or 5/3 if your art fits better */
+  height:auto;
+  object-fit:cover;       /* fill the frame, hide extra whitespace */
+
   margin:0; padding:0; border:0;
-  background:#fff;           /* optional: keeps white edges looking clean */
+  border-radius:12px;
+  background:#fff;
 }
+
 
 
 
