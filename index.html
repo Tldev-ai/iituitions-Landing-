@@ -564,20 +564,16 @@
 }
 
 .how-photos img{
-  display:block;
-  /* 5 equal tiles per row with your 12px gap */
   flex:0 0 calc((100% - 4*12px)/5);
   max-width:calc((100% - 4*12px)/5);
-
-  /* force identical visual size */
-  aspect-ratio: 3 / 4;   /* tweak to 4/3 or 5/3 if your art fits better */
+  aspect-ratio: 3 / 4;
   height:auto;
-  object-fit:cover;       /* fill the frame, hide extra whitespace */
-
+  object-fit: cover;
   margin:0; padding:0; border:0;
   border-radius:12px;
   background:#fff;
 }
+
 
 
 
