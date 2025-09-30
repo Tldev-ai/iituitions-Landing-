@@ -1453,7 +1453,43 @@ If we miss a promise, <span class="hl-yellow">you don’t pay for it.</span>
       });
     });
   </script>
-  
+  <script>
+// Track WhatsApp, Phone, and CTA clicks with Meta Pixel
+(function(){
+  function trackWhatsAppClick(el){
+    try {
+      fbq('trackCustom', 'WhatsAppClick', {
+        content_name: el.getAttribute('aria-label') || el.textContent.trim() || 'WhatsApp',
+        content_category: 'Lead Gen',
+        value: 0,
+        currency: 'INR'
+      });
+    } catch(e){}
+  }
+  function trackPhoneClick(el){
+    try {
+      fbq('track', 'Contact', {
+        content_name: el.getAttribute('aria-label') || el.textContent.trim() || 'Phone Call',
+        content_category: 'Lead Gen'
+      });
+    } catch(e){}
+  }
+
+  // Delegate clicks so you don't have to edit each <a>
+  document.addEventListener('click', function(e){
+    const a = e.target.closest('a[href]');
+    if(!a) return;
+
+    const href = a.getAttribute('href') || '';
+    if (href.startsWith('https://wa.me/')) {
+      trackWhatsAppClick(a);
+    } else if (href.startsWith('tel:')) {
+      trackPhoneClick(a);
+    }
+  }, true);
+})();
+</script>
+
 
 </body>
 </html>
