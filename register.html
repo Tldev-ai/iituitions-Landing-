@@ -1,1498 +1,1263 @@
 <!DOCTYPE html>
 <html lang="en">
-<head> 
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
-  <title>IITuitions — Transform Your Child's IIT Dreams into Reality</title>
-  
-  <meta name="description" content="Personal mentorship from IIT/NIT alumni. Only 50 students chosen yearly for true individual attention. Book a free assessment on WhatsApp.">
-    <!-- Favicons / PWA -->
-  <link rel="shortcut icon" href="/favicon.ico?v=2" sizes="any">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=2">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=2">
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=2">
-  <link rel="manifest" href="/site.webmanifest?v=2">
-  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#0b3b2a">
-  <meta name="theme-color" content="#0b3b2a">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join iiTuitions - Faculty Registration</title>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Work+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1a1a2e;
+            --accent: #ff6b35;
+            --accent-light: #ff8c61;
+            --success: #16a34a;
+            --bg: #fafaf9;
+            --surface: #ffffff;
+            --text: #1a1a2e;
+            --text-muted: #64748b;
+            --border: #e7e5e4;
+        }
 
-  
-  <!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '3734412066776378');
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=3734412066776378&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Meta Pixel Code -->
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-  <style>
-    :root{
-      --primary:#000; --primary-2:#1a1a1a;
-      --text:#0b1220; --text-2:#374151; --muted:#64748b;
-      --bg:#fff; --bg-2:#f6f7f9; --accent:linear-gradient(135deg,#000,#333);
-      --ring:#e5e7eb; --shadow1:rgba(0,0,0,.08); --shadow2:rgba(0,0,0,.18);
-      --wa:#25D366; --ok:#10b981; --danger:#ef4444;
-    }
-    *{margin:0;padding:0;box-sizing:border-box}
-    html,body{height:100%}
-    body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;color:var(--text);background:#fff;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
-    .container{max-width:1200px;margin:0 auto;padding:0 12px}
-    a{text-decoration:none}
+        body {
+            font-family: 'Work Sans', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
 
-    /* Header */
-    .site-header{position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid var(--ring);box-shadow:0 2px 12px var(--shadow1)}
-    .header-row{display:flex;align-items:center;justify-content:space-between;padding:6px 0}
+        /* Animated background */
+        .bg-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.03;
+        }
 
-    .logo{font-weight:900;color:#000;font-size:18px}
-    .hamb{width:44px;height:44px;border:none;background:transparent;display:flex;flex-direction:column;gap:5px;align-items:center;justify-content:center}
-    .hamb span{width:24px;height:3px;background:#000;border-radius:2px}
-    /* Force-hide hamburger + dropdown on all screens */
-    .hamb { display:none !important; }
-    .menu { display:none !important; }
-    .nav-actions{display:none}
-    
-    /* Show faculty button on desktop */
-    @media (min-width:768px){
-      .faculty-btn-desktop { display:inline-flex !important; }
-    }
-    .menu{position:absolute;top:100%;right:12px;width:260px;background:#fff;border:1px solid var(--ring);border-radius:14px;box-shadow:0 14px 34px var(--shadow2);opacity:0;visibility:hidden;transform:translateY(-8px);transition:.2s}
-    .menu a{display:block;padding:14px 16px;color:#111;font-weight:600;border-bottom:1px solid #f1f5f9}
-    .menu a:last-child{border-bottom:none}
-    .menu.open{opacity:1;visibility:visible;transform:translateY(0)}
-    /* Accessible helper to keep brand name for screen readers */
-    .sr-only{
-      position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden;
-      clip:rect(0,0,1,1); white-space:nowrap; border:0;
-    }
+        .bg-animation::before,
+        .bg-animation::after {
+            content: '';
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            background: var(--accent);
+            filter: blur(100px);
+            animation: float 20s ease-in-out infinite;
+        }
 
-    /* Logo image sizing */
-    .logo{ display:inline-flex; align-items:center; gap:10px; font-weight:900; color:#000; font-size:18px }
-    .logo-img{ height:64px; width:auto; display:block }
-    @media (min-width:768px){ .logo-img{ height:88px } }
+        .bg-animation::before {
+            top: -200px;
+            right: -200px;
+            animation-delay: -5s;
+        }
 
-    /* Buttons */
-    .btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:12px 18px;border-radius:26px;font-weight:800;border:2px solid transparent;cursor:pointer;touch-action:manipulation}
-    .btn-outline{border-color:#000;color:#000}
-    .btn-outline:hover{background:#000;color:#fff}
-    .btn-wa{background:var(--wa);color:#fff;border-color:#1fbf57;box-shadow:0 8px 24px rgba(37,211,102,.35)}
-    .btn-wa:hover{background:#20BA5A}
+        .bg-animation::after {
+            bottom: -200px;
+            left: -200px;
+            animation-delay: -10s;
+        }
 
-    /* Hero */
-    .hero{background:var(--accent);color:#fff;padding:18px 12px 28px;text-align:center;position:relative}
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(100px, -100px) scale(1.1); }
+            66% { transform: translate(-100px, 100px) scale(0.9); }
+        }
 
-    .hero .wrap{max-width:900px;margin:0 auto}
-    .stats{display:grid;grid-template-columns:repeat(2,1fr);gap:6px;margin-bottom:14px}
-    .pill{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.22);padding:8px 10px;border-radius:14px;font-size:12px;font-weight:800}
-    .hero h1{font-size:26px;font-weight:900;margin:8px 0 10px}
-    .hero p{opacity:.95;font-size:15px}
-    .hero-ctas{display:flex;flex-direction:column;gap:10px;margin:16px 0}
-    .hero small{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);padding:10px 14px;border-radius:18px;color:#111;display:inline-block}
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 24px;
+            position: relative;
+        }
 
-    /* Trust */
-    .trust{background:#f8fafc;padding:20px 0}
-    .trustgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;max-width:900px;margin:0 auto}
-    .trustcard{background:#fff;border:1px solid var(--ring);border-radius:14px;padding:12px;text-align:center}
-    .big{font-size:20px;font-weight:900}
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 60px;
+            animation: fadeInDown 0.8s ease;
+        }
 
-    .section-title{font-size:24px;font-weight:900;text-align:center;margin:24px 0 12px}
-    /* more space between the H2 and the first dark pill */
-.process .section-title{ margin-bottom: 24px; }  /* was 12px */
+        .logo {
+            font-family: 'DM Serif Display', serif;
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 12px;
+            font-weight: 400;
+        }
 
+        .tagline {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            font-weight: 300;
+            margin-bottom: 24px;
+        }
 
-    /* Steps & panels */
-    /* Steps overview — vertical with + separators */
-.steps-overview{
-  display:flex;
-  flex-direction:column;
-  gap:10px;
-   margin:10px 0 28px;
-  align-items:center;
-}
-.ovr{
-  display:flex; align-items:center; gap:12px;
-  background:#0B112D;          /* dark blue */
-  color:#fff;                   /* white text */
-  border:0; border-radius:16px;
-  padding:16px 18px;
-  box-shadow:0 12px 28px var(--shadow1);
-  font-weight:900;
-    width:fit-content; 
-}
-.ovr .num{
-  width:36px; height:36px; flex:0 0 36px;
-  display:grid; place-items:center;
-  border-radius:999px;
-  background:#0f172a; color:#fff; /* keeps the badge dark */
-  font-size:16px; font-weight:900;
-  line-height:1;
-}
-.plus{
-  display:flex; justify-content:center; align-items:center;
-  font-weight:900; font-size:32px; line-height:1;
-  color:#0B112D;                 /* dark blue plus */
-  filter:drop-shadow(0 4px 10px rgba(0,0,0,.08));
-}
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            margin-top: 32px;
+        }
 
-    .process{padding:8px 0 18px}
-    .process{padding:8px 0 18px}
+        .stat-item {
+            text-align: center;
+        }
 
-/* Steps static image banner */
-.process .steps-banner{
-  display:flex;
-  justify-content:center;
-  margin:10px 0 28px;
-}
-.process .steps-banner img{
-  width:100%;
-  max-width:1000px;
-  border-radius:16px;
-  border:1px solid var(--ring);
-  box-shadow:0 10px 24px rgba(0,0,0,.08);
-}
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--accent);
+            display: block;
+        }
 
-    .steps{display:grid;gap:8px;max-width:1000px;margin:0 auto}
-    .step-wrap{
-      background:#fff;
-      border:1px solid var(--ring);
-      border-radius:18px;
-      box-shadow:0 10px 26px var(--shadow1);
-      padding:14px;
-    }
-    .step-wrap > .step{border:none;box-shadow:none;padding:0;background:transparent}
-    .step-wrap > .how-panel{margin-top:12px}
-    
-    .step{display:flex;gap:12px;align-items:flex-start;background:#fff;border:1px solid var(--ring);border-radius:16px;padding:14px;box-shadow:0 10px 26px var(--shadow1)}
-    .step .num{
-      width:44px;
-      height:44px;
-      flex:0 0 44px;
-      aspect-ratio:1 / 1;
-      display:grid;
-      place-items:center;
-      border-radius:999px;
-      background:#0f172a;
-      color:#fff;
-      font-weight:900;
-      font-size:18px;
-      line-height:1;
-    }
+        .stat-label {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
 
-    .step h3{font-size:18px;margin-bottom:2px}
-    .step .sub{
-      font-size:16px;
-      margin:6px 0 0;
-      color:#0b1220;
-      background:transparent;
-      display:inline-block;
-      padding:0;
-      border-radius:0;
-    }
+        /* Form Container */
+        .form-container {
+            background: var(--surface);
+            border-radius: 24px;
+            padding: 48px;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05), 0 2px 4px -2px rgb(0 0 0 / 0.05);
+            border: 1px solid var(--border);
+            animation: fadeInUp 0.8s ease 0.2s backwards;
+        }
 
-    .how-panel{background:#fff;border:1px solid var(--ring);border-radius:18px;padding:16px;box-shadow:0 8px 22px var(--shadow1)}
-    .how-panel h5{font-size:18px;font-weight:900;margin-bottom:6px}
-    .how-panel h5{
-      display:inline-block;
-      background:#ffeb66;
-      color:#0b1220;
-      padding:6px 10px;
-      border-radius:10px;
-      line-height:1.2;
-      box-shadow:0 0 0 1px rgba(0,0,0,0.02) inset;
-    }
-    /* reusable yellow highlight strip */
-.hl-yellow{
-  background:#ffeb66;
-  color:#0b1220;               /* keep text dark for contrast */
-  padding:2px 8px;
-  border-radius:8px;
-  font-weight:900;
-  box-shadow:0 0 0 1px rgba(0,0,0,0.02) inset;
-}
-    /* yellow text (no background strip) */
-.text-yellow{ color:#ffeb66; }
+        .form-title {
+            font-family: 'DM Serif Display', serif;
+            font-size: 1.75rem;
+            color: var(--primary);
+            margin-bottom: 12px;
+            font-weight: 400;
+        }
 
+        .form-subtitle {
+            color: var(--text-muted);
+            margin-bottom: 40px;
+            font-size: 1rem;
+        }
 
+        /* Step indicator */
+        .steps-indicator {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 48px;
+            position: relative;
+        }
 
-    .muted{color:#475569;font-size:14px;margin-bottom:8px}
-    .bullets{margin-left:18px}
-    .bullets li{margin:6px 0;color:#111827}
-    .subb{margin:6px 0 0 20px;list-style:circle}
-    .receive{margin-top:10px}
-    .receive li{margin:6px 0}
-    .roadmap{margin-top:10px;background:#fafafa;border:1px dashed #cbd5e1;border-radius:14px;padding:12px}
-    .roadmap h6{font-size:15px;font-weight:900;margin-bottom:6px}
+        .steps-indicator::before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--border);
+            z-index: 0;
+        }
 
-    /* Accordion */
-    .accordion{border:1px solid var(--ring);border-radius:14px;overflow:hidden;margin-top:10px;background:#fff}
-    .acc-h{padding:14px 16px;display:flex;justify-content:space-between;align-items:center;cursor:pointer;font-weight:900}
-    .acc-b{display:none;padding:0 16px 16px}
-    .accordion.open .acc-b{display:block}
-    .accordion.open .toggle{transform:rotate(180deg)}
-    .toggle{transition:.2s}
-    
-    /* Guarantee badge */
-    .guarantee-badge{
-      display:inline-flex;align-items:center;gap:10px;
-      background:#fff;color:#111;font-weight:700;font-size:14px;
-      padding:12px 16px;border-radius:999px;border:1px solid #e5e7eb;
-      box-shadow:0 6px 18px rgba(0,0,0,.10);
-    }
+        .step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            position: relative;
+            z-index: 1;
+            flex: 1;
+        }
 
-    /* Carousels */
-    .carousel-wrapper{
-      position:relative;
-      --fadeW: 36px;
-      --padX: 12px;
-    }
-    .carousel-wrapper::before,
-    .carousel-wrapper::after{
-      content:"";
-      position:absolute;top:0;bottom:0;width:var(--fadeW);pointer-events:none;z-index:2;
-    }
-    .carousel-wrapper::before{ left:0;background:linear-gradient(90deg,#fff,rgba(255,255,255,0)); }
-    .carousel-wrapper::after{ right:0;background:linear-gradient(270deg,#fff,rgba(255,255,255,0)); }
-    .carousel{
-      display:flex;gap:16px;overflow-x:auto;padding:6px var(--padX) 14px;
-      scroll-snap-type:x mandatory;scroll-behavior:smooth;-webkit-overflow-scrolling:touch;
-    }
-    .carousel::-webkit-scrollbar{height:0}
-    .card-xl{
-      scroll-snap-align:start;
-      min-width:clamp(280px,76vw,420px);
-      background:#fff;border:1px solid var(--ring);border-radius:18px;padding:14px;
-      box-shadow:0 12px 28px rgba(0,0,0,.08);
-    }
-    .shot{background:#eafff3;border:1px solid #c7f0db}
-    .shot .img{
-      width:100%;
-      aspect-ratio:3/4;
-      min-height:clamp(360px,56vw,620px);
-      background:#f1f5f9;border-radius:12px;
-    }
-    .shot .title{ margin-top:10px;font-weight:900;font-size:18px;line-height:1.35;color:#256b3e; }
+        .step-circle {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--surface);
+            border: 2px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            color: var(--text-muted);
+            transition: all 0.3s ease;
+        }
 
-    /* Reviews/Toppers carousel (bigger) */
-    .review-card{ position:relative; padding-top:16px; }
-    .badge{ position:absolute;top:-10px;right:14px;background:#000;color:#fff;padding:6px 12px;border-radius:12px;font-size:12px;font-weight:800 }
-    .review-name{font-weight:900;font-size:18px;margin:0 0 6px}
-    .review-note{color:#374151;font-size:15px}
+        .step.active .step-circle {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: white;
+            transform: scale(1.1);
+        }
 
-    /* Large photo student cards (toppers) */
-    .student-card{
-      scroll-snap-align:start;
-      min-width:clamp(260px,56vw,460px);
-      background:#fff;border:1px solid var(--ring);
-      border-radius:18px;overflow:hidden;
-      box-shadow:0 12px 28px rgba(0,0,0,.08);
-       position: relative;
-    }
-    /* Names shown under the image (not on the ribbon) */
-.student-body .student-name{
-  font-weight:900; font-size:22px; color:#0b1220; margin:0 0 6px;
-}
-/* If any name is still inside the ribbon by mistake, hide it there */
-.student-ribbon .student-name{ display:none; }
+        .step.completed .step-circle {
+            background: var(--success);
+            border-color: var(--success);
+            color: white;
+        }
 
-    .student-photo{
-  position:relative;width:100%;
-  aspect-ratio: 16/12;               /* keeps same card height */
-  background-size: cover;
-  background-position: 50% var(--focusY, 30%); /* 👈 push image down a bit */
-  border-bottom:1px solid #eef2f7;
-  overflow:hidden;    
-}
+        .step-label {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-align: center;
+        }
 
-    .student-ribbon{
-      position:absolute;left:0;right:0;bottom:0;
-      padding:16px 18px;
-      background:linear-gradient(180deg, rgba(2,6,23,0) 0%, rgba(2,6,23,.75) 40%, rgba(2,6,23,.9) 80%);
-      color:#fff;display:flex;justify-content:space-between;align-items:flex-end;gap:10px;
-    }
-    .student-name{font-weight:900;font-size:22px;letter-spacing:.2px}
-    .student-score{font-weight:800;opacity:.95}
-    .student-body{padding:16px}
-    .student-univ{font-weight:900;margin-bottom:6px}
-    .student-quote{color:#374151}
+        /* Form sections */
+        .form-section {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
 
-    /* Founder */
-    .founder{background:#0b0b0b;color:#fff;padding:44px 0}
-    .f-card{
-      background:#0f1115;border:1px solid #1f2937;border-radius:24px;padding:24px;
-      display:grid;grid-template-columns:120px 1fr;gap:18px;box-shadow:0 24px 60px rgba(0,0,0,.45);
-      max-width:1100px;margin:0 auto;
-    }
-    .f-avatar{
-  width:120px;height:120px;border-radius:999px;object-fit:cover;
-  object-position:50% 18%;           /* show more forehead */
-  border:2px solid #334155;box-shadow:0 12px 34px rgba(0,0,0,.5);display:block;
-}
+        .form-section.active {
+            display: block;
+        }
 
-    .f-title{font-size:28px;line-height:1.2;font-weight:900;color:#fff}
-    .f-title-strong{display:block;font-size:32px}
-    .f-sub{color:#9ca3af;font-style:italic;margin:6px 0 12px}
-    .f-body p{color:#e5e7eb;margin:8px 0}
-    .f-points{list-style:none;margin:12px 0 0;padding:0}
-    .f-points li{display:flex;align-items:flex-start;gap:10px;color:#e5e7eb;margin:8px 0}
-    .f-points .icon{width:22px;text-align:center;flex:0 0 22px}
-    .founder .bullets li{color:#e5e7eb}
+        .section-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 24px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid var(--accent);
+        }
 
-    /* Comparison layout */
-    .why-grid{ display:grid; grid-template-columns:1fr 1fr; gap:24px; align-items:start; }
-    .card{ background:#fff; border:1px solid #f1f5f9; border-radius:18px; padding:24px; box-shadow:0 8px 28px rgba(0,0,0,.06); }
-    .card-red h3{ color:#ef4444; }
-    .card-green h3{ color:#10b981; }
-    @media (max-width:768px){
-      .why-grid{ grid-template-columns:1fr; }
-      .card{ padding:18px; }
-      .why-grid .card + .card{ margin-top:12px; }
-    }
+        /* Form fields */
+        .form-group {
+            margin-bottom: 24px;
+        }
 
-    /* Comparison */
-    .compare{background:#f8fafc;padding:28px 0}
-    .c-wrap{max-width:1000px;margin:0 auto;display:grid;gap:16px}
-    .tbl{background:#fff;border:1px solid var(--ring);border-radius:14px;overflow:hidden;box-shadow:0 8px 24px var(--shadow1)}
-    .th{padding:12px 14px;color:#fff;font-weight:900}
-    .th-a{background:linear-gradient(135deg,#6b7280,#4b5563)}
-    .th-b{background:linear-gradient(135deg,#000,#1a1a1a)}
-    table{width:100%;border-collapse:collapse}
-    th{background:#f8fafc;text-align:left;padding:10px 14px}
-    td{padding:10px 14px;border-bottom:1px solid #eef2f7}
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--text);
+            font-size: 0.95rem;
+        }
 
-    /* Google Reviews */
-    .ratings-strip{
-      display:flex;align-items:center;justify-content:center;gap:10px;
-      background:#fff;border:1px solid #eef2f7;border-radius:18px;
-      padding:10px 14px;box-shadow:0 6px 18px rgba(0,0,0,.06);
-      max-width:720px;margin:0 auto 14px;font-weight:800;color:#111;
-    }
-    .ratings-strip .stars{font-size:18px;letter-spacing:1px}
-    .ratings-strip small{font-weight:600;color:#475569}
-    .shots3{max-width:900px;margin:0 auto 14px}
-    .shots3-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
-    .shots3-grid img{width:100%;border-radius:12px;background:#f3f4f6}
-    .reviews-rail{position:relative}
-    .reviews{ display:flex;gap:16px;overflow-x:auto;padding:6px 2px 14px; scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch }
-    .reviews::-webkit-scrollbar{display:none}
-    .rev-card{ scroll-snap-align:start;min-width:clamp(260px,78vw,380px); background:#fff;border:1px solid #eef2f7;border-radius:18px;padding:14px; box-shadow:0 10px 26px rgba(0,0,0,.06) }
-    .rev-head{display:flex;align-items:center;gap:12px;margin-bottom:8px}
-    .rev-avatar{width:44px;height:44px;border-radius:999px;object-fit:cover;background:#f1f5f9}
-    .rev-name{font-weight:900}
-    .rev-meta{font-size:12px;color:#64748b}
-    .rev-stars{color:#f59e0b;font-size:14px}
-    .rev-body{color:#111827}
+        .required {
+            color: var(--accent);
+            margin-left: 4px;
+        }
 
-    @media (max-width:768px){
-      .ratings-strip{padding:8px 12px}
-      .rev-card{min-width:84vw}
-      .shots3-grid{grid-template-columns:1fr}
-    }
+        .form-input,
+        .form-select,
+        .form-textarea {
+            width: 100%;
+            padding: 14px 16px;
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            font-family: 'Work Sans', sans-serif;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background: var(--surface);
+            color: var(--text);
+        }
 
-    /* Footer */
-    .footer{background:#000;color:#fff;margin-top:30px}
-    .foot-top{padding:24px 0}
-    .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1.4fr;gap:18px}
-    .foot-title{font-weight:800;margin-bottom:8px}
-    .foot-links{list-style:none}
-    .foot-links li{margin:6px 0}
-    .foot-links a{color:#c7d2fe}
-    .foot-links a:hover{color:#fff}
-    .addr{line-height:1.7;color:#cbd5e1}
-    .bar{border-top:1px solid rgba(255,255,255,.15);text-align:center;padding:12px 0;font-size:13px}
+        .form-input:focus,
+        .form-select:focus,
+        .form-textarea:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 4px rgba(255, 107, 53, 0.1);
+        }
 
-    /* Responsive */
-    @media (max-width:420px){
-      .stats{grid-template-columns:1fr}
-      .hero h1{font-size:22px}
-      .logo{font-size:17px}
-      .section-title{font-size:22px}
-      .foot-grid{grid-template-columns:1fr;gap:14px}
-      .f-card{grid-template-columns:1fr;gap:14px;text-align:center}
-      .f-avatar{margin:0 auto}
-    }
-    @media (min-width:768px){
-      .hamb{display:none}.nav-actions{display:flex;gap:12px}
-      .hero h1{font-size:44px}
-      .stats{display:flex;justify-content:center;gap:10px;flex-wrap:wrap}
-      .section-title{font-size:36px}
-      .f-card{grid-template-columns:220px 1fr;gap:28px}
-      .f-avatar{
-  width:220px;height:220px;border-width:3px;
-  object-position:50% 18%;
-}
+        .form-textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
 
-      .f-title{font-size:40px}.f-title-strong{font-size:44px}
-      .card-xl{min-width:420px}
-      .carousel-wrapper::before{background:linear-gradient(90deg,#f8fafc,rgba(248,250,252,0))}
-      .carousel-wrapper::after{background:linear-gradient(270deg,#f8fafc,rgba(248,250,252,0))}
-    }
+        .form-hint {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            margin-top: 6px;
+            font-style: italic;
+        }
 
-    /* container width rules for two rails */
-    .wa-rail .container{ max-width:1400px; }
-    #success .container{ max-width:1200px; }
-    #success h2{ text-align:center; margin-bottom:14px; }
+        /* Checkbox groups */
+        .checkbox-group {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            gap: 12px;
+            margin-top: 12px;
+        }
 
-    /* bullets styling */
-    .bullets{ list-style:none; padding-left:0; margin-left:0; }
-    .bullets li{ margin:14px 0 16px; line-height:1.55; position:relative; padding-left:28px; }
-    .bullets li b{ display:inline; margin-left:6px; }
-    .li-sub{ display:block; margin-left:34px; color:#374151; }
-    .bullets li::before{
-      content:""; position:absolute; left:0; top:0.68em; width:10px; height:10px; border-radius:50%;
-      background:#111827; opacity:.95; transform:translateY(-50%);
-    }
-    /* Hide the dark ribbon if there's no text inside it */
-.student-ribbon:empty{ display:none; }
+        .checkbox-item {
+            position: relative;
+        }
 
-/* Softer fade when ribbon is used */
-.student-ribbon{
-  background: linear-gradient(180deg, rgba(2,6,23,0) 0%, rgba(2,6,23,.35) 55%, rgba(2,6,23,.6) 100%);
-}
+        .checkbox-input {
+            position: absolute;
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
 
-/* FAQ styling (dropdown cards) */
-.faqs .accordion{ margin:10px 0; border-radius:14px; overflow:hidden; }
-.faqs .acc-h{ background:#0B112D; color:#fff; border:1px solid #0E1435; }
-.faqs .acc-h .toggle{ color:#fff; }
-.faqs .acc-b{ background:#fff; border:1px solid var(--ring); border-top:0; }
-.faqs .acc-b p, .faqs .acc-b li{ margin:8px 0; }
-    /* FAQs: limit width, center the cards, and center the question text */
-/* FAQs: make each pill only as wide as its text, centered */
-#faqs .final-wrap{
-  display:flex;
-  flex-direction:column;
-  align-items:center;            /* center the pills */
-}
+        .checkbox-label {
+            display: flex;
+            align-items: center;
+            padding: 12px 16px;
+            border: 2px solid var(--border);
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+            background: var(--surface);
+            user-select: none;
+        }
 
-.faqs .accordion{
-  display:inline-block;          /* shrink-to-fit the text */
-  width:auto;
-  max-width:96vw;                /* never overflow screen */
-  margin:14px 0;                 /* small gap between FAQs */
-  border-radius:14px;
-  overflow:hidden;
-}
+        .checkbox-label:hover {
+            border-color: var(--accent-light);
+            background: rgba(255, 107, 53, 0.05);
+        }
 
-/* Center the question; keep caret on right without affecting width */
-.faqs .acc-h{
-  justify-content:center;
-  text-align:center;
-  position:relative;
-  padding:16px 56px;             /* room for the caret */
-}
-.faqs .acc-h .toggle{
-  position:absolute;
-  right:16px;
-  top:50%;
-  transform:translateY(-50%);
-  transition:transform .2s ease;
-}
-.faqs .accordion.open .acc-h .toggle{
-  transform:translateY(-50%) rotate(180deg);
-}
+        .checkbox-input:checked + .checkbox-label {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: white;
+            font-weight: 500;
+        }
 
-/* Keep questions in one line on wide screens so pill = text length */
-@media (min-width:768px){
-  .faqs .acc-h span:first-child{ white-space:nowrap; }
-}
+        /* Radio buttons */
+        .radio-group {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-top: 12px;
+        }
 
+        .radio-item {
+            position: relative;
+        }
 
+        .radio-input {
+            position: absolute;
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
 
-    
-    /* FAQs: make panel text black + add gap between items */
-.faqs .acc-b{ color:#0b1220; }                              /* body text black */
-.faqs .acc-b p, .faqs .acc-b li, .faqs .acc-b b,
-.faqs .acc-b strong{ color:#0b1220; }                       /* ensure all text is black */
-.faqs .acc-b .bullets li::before{ background:#0b1220; }     /* black bullet dots */
-.faqs .accordion{ margin:14px 0; }                          /* a little gap between FAQs */
+        .radio-label {
+            display: flex;
+            align-items: center;
+            padding: 12px 24px;
+            border: 2px solid var(--border);
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: var(--surface);
+            user-select: none;
+        }
 
+        .radio-label:hover {
+            border-color: var(--accent-light);
+            background: rgba(255, 107, 53, 0.05);
+        }
 
-/* Footer copyright — small & subtle */
-.footer .bar{ font-size:12px; color:#cbd5e1; }
-    /* ===== FAQ: remove the question containers, keep centered text ===== */
-#faqs .final-wrap{
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-}
+        .radio-input:checked + .radio-label {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: white;
+            font-weight: 500;
+        }
 
-/* kill the pill/card on the wrapper itself */
-.faqs .accordion{
-  background:transparent;
-  border:0;
-  box-shadow:none;
-  display:block;          /* override any inline-block from before */
-  width:100%;
-  max-width:none;         /* override old 980px cap */
-  margin:10px 0;
-}
+        /* Buttons */
+        .button-group {
+            display: flex;
+            gap: 16px;
+            margin-top: 40px;
+        }
 
-/* the clickable question row: just text, centered */
-.faqs .acc-h{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  gap:10px;
-  background:transparent;
-  border:0;
-  color:#fff;
-  padding:14px 56px 14px 20px;  /* space for caret */
-  margin:0 auto;                /* center the row */
-  position:relative;
-  text-align:center;
-}
-.faqs .acc-h span:first-child{ white-space:nowrap; } /* keep one-line text */
+        .btn {
+            padding: 14px 32px;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            font-family: 'Work Sans', sans-serif;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
 
-/* caret stays on the right */
-.faqs .acc-h .toggle{
-  position:absolute; right:16px; top:50%;
-  transform:translateY(-50%);
-  transition:transform .2s ease;
-  color:#fff;
-}
-.faqs .accordion.open .acc-h .toggle{
-  transform:translateY(-50%) rotate(180deg);
-}
+        .btn-primary {
+            background: var(--accent);
+            color: white;
+            flex: 1;
+        }
 
-/* subtle divider under each question */
-.faqs .acc-h::after{
-  content:""; position:absolute; left:0; right:0; bottom:-10px; height:1px;
-  background:rgba(255,255,255,.12);
-}
+        .btn-primary:hover {
+            background: var(--accent-light);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px -10px var(--accent);
+        }
 
-/* the answer stays as a white card with black text */
-.faqs .acc-b{
-  background:#fff;
-  color:#0b1220;
-  border:1px solid var(--ring);
-  border-radius:14px;
-  padding:16px;
-  width:min(980px,96vw);
-  margin:14px auto 2px;
-  box-shadow:0 10px 24px rgba(0,0,0,.10);
-}
-/* How It Works — responsive image strip (touching edges) */
-    /* Make the strip horizontal on desktop */
-.how-photos{
-  display:flex;
-  flex-wrap:wrap;        /* lets them wrap to the next line if needed */
-  gap:12px;              /* space between images */
-  justify-content:center;/* center the row */
-  align-items:flex-start;
-}
+        .btn-secondary {
+            background: transparent;
+            color: var(--text);
+            border: 2px solid var(--border);
+        }
 
-/* Desktop: 4 tiles per row; the 5th wraps below and stays centered */
-.how-photos img{
-  flex:0 0 calc((100% - 3*12px)/4);
-  max-width:calc((100% - 3*12px)/4);
-  aspect-ratio: 3 / 4;
-  height:auto;
-  object-fit:contain ;
-  margin:0; padding:0; border:0;
-  border-radius:12px;
-  background:#fff;
-}
+        .btn-secondary:hover {
+            border-color: var(--text);
+        }
 
-/* ── tablet landscape / small desktop: 3 per row ── */
-@media (max-width: 1024px){
-  .how-photos img{
-    flex-basis:33.333%;
-    max-width:33.333%;
-  }
-}
+        .btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none !important;
+        }
 
-/* ── tablets / larger phones: 2 per row ── */
-@media (max-width: 768px){
-  .how-photos img{
-    flex-basis:50%;
-    max-width:50%;
-  }
-}
+        /* Success message */
+        .success-message {
+            display: none;
+            text-align: center;
+            padding: 60px 40px;
+            animation: fadeIn 0.8s ease;
+        }
 
-/* ── small phones: 1 per row ── */
-@media (max-width: 480px){
-  .how-photos img{
-    flex-basis:100%;
-    max-width:100%;
-    aspect-ratio:auto;       /* avoid over-tall crops on tiny screens */
-    object-fit:cover;        /* keep fill; change to 'contain' if you prefer */
-  }
-}
+        .success-message.show {
+            display: block;
+        }
 
-/* FAQ fix: don't clip the white card and make it fit the parent */
-.faqs .accordion{ 
-  overflow: visible;             /* override the global overflow:hidden */
-}
+        .success-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: var(--success);
+            margin: 0 auto 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            animation: scaleIn 0.5s ease;
+        }
 
-.faqs .acc-b{
-  display: none;                 /* hidden until opened */
-  width: 100%;                   /* fit parent width */
-  max-width: 900px;              /* cap on wide screens */
-  margin: 16px auto 8px;
-  padding: 22px 28px;
-  background:#fff;
-  color:#0b1220;
-  border:1px solid var(--ring);
-  border-radius:16px;
-  box-shadow:0 10px 24px rgba(0,0,0,.10);
-  overflow-wrap:anywhere;
-}
+        .success-title {
+            font-family: 'DM Serif Display', serif;
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 16px;
+        }
 
-/* when opened, show the body */
-.accordion.open .acc-b{ display:block; }
+        .success-text {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            margin-bottom: 32px;
+        }
 
-/* ========== FACULTY REGISTRATION BUTTON STYLES ========== */
-/* Desktop faculty button in header */
-.faculty-btn-desktop{
-  display:none;
-  background:#000;
-  color:#fff;
-  padding:10px 18px;
-  border-radius:20px;
-  font-weight:700;
-  font-size:14px;
-  text-decoration:none;
-  transition:all 0.2s ease;
-}
-.faculty-btn-desktop:hover{
-  background:#333;
-  transform:translateY(-1px);
-}
-@media (min-width:768px){
-  .faculty-btn-desktop{ display:inline-flex; align-items:center; gap:6px; }
-}
+        .whatsapp-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: #25D366;
+            color: white;
+            padding: 16px 32px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
 
-/* Mobile menu faculty link */
-.menu a[href="/register.html"]{
-  background:rgba(0,0,0,0.05);
-  font-weight:700;
-  border-top:1px solid #e5e7eb;
-}
+        .whatsapp-btn:hover {
+            background: #20BA5A;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px -10px #25D366;
+        }
 
-/* Footer faculty link */
-.footer-faculty-link{
-  color:#25D366;
-  font-weight:700;
-  text-decoration:none;
-  margin-right:20px;
-  transition:all 0.2s ease;
-}
-.footer-faculty-link:hover{
-  color:#20BA5A;
-  text-decoration:underline;
-}
-  </style>
+        /* Loading state */
+        .loading {
+            display: none;
+            text-align: center;
+            padding: 40px;
+        }
 
+        .loading.show {
+            display: block;
+        }
+
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 4px solid var(--border);
+            border-top-color: var(--accent);
+            border-radius: 50%;
+            margin: 0 auto 24px;
+            animation: spin 1s linear infinite;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.5);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .form-container {
+                padding: 32px 24px;
+            }
+
+            .header {
+                margin-bottom: 40px;
+            }
+
+            .logo {
+                font-size: 2rem;
+            }
+
+            .hero-stats {
+                gap: 24px;
+            }
+
+            .stat-number {
+                font-size: 1.5rem;
+            }
+
+            .steps-indicator {
+                margin-bottom: 32px;
+            }
+
+            .step-label {
+                display: none;
+            }
+
+            .checkbox-group {
+                grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+                gap: 8px;
+            }
+
+            .button-group {
+                flex-direction: column-reverse;
+            }
+
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
 </head>
 <body>
-  <script>fbq('track', 'Contact');</script>
+    <div class="bg-animation"></div>
+    
+    <div class="container">
+        <div class="header">
+            <h1 class="logo">iiTuitions</h1>
+            <p class="tagline">Join Our Elite Faculty Network</p>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <span class="stat-number">11,000+</span>
+                    <span class="stat-label">Tutors</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">2 Days</span>
+                    <span class="stat-label">Get Leads</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">Premium</span>
+                    <span class="stat-label">Students</span>
+                </div>
+            </div>
+        </div>
 
-  <!-- Header -->
-  <header class="site-header">
-    <div class="container header-row">
-      <a class="logo" href="#">
-        <img src="logotree.png" alt="iiTuitions" class="logo-img">
-        <span class="sr-only">iiTuitions</span>
-      </a>
-      <div style="position:relative;display:flex;gap:12px;align-items:center">
-        <!-- ADDED: Desktop Faculty Button -->
-        <a href="/register.html" class="faculty-btn-desktop">
-          👩‍🏫 Join as Faculty
-        </a>
+        <div class="form-container">
+            <!-- Steps Indicator -->
+            <div class="steps-indicator">
+                <div class="step active" data-step="1">
+                    <div class="step-circle">1</div>
+                    <div class="step-label">Personal</div>
+                </div>
+                <div class="step" data-step="2">
+                    <div class="step-circle">2</div>
+                    <div class="step-label">Teaching</div>
+                </div>
+                <div class="step" data-step="3">
+                    <div class="step-circle">3</div>
+                    <div class="step-label">Availability</div>
+                </div>
+                <div class="step" data-step="4">
+                    <div class="step-circle">4</div>
+                    <div class="step-label">Preferences</div>
+                </div>
+            </div>
+
+            <form id="tutorForm">
+                <!-- Section 1: Personal Information -->
+                <div class="form-section active" data-section="1">
+                    <h2 class="section-title">Personal Information</h2>
+                    
+                    <div class="form-group">
+                        <label class="form-label">
+                            Full Name <span class="required">*</span>
+                        </label>
+                        <input type="text" name="fullName" class="form-input" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">
+                            Contact Number <span class="required">*</span>
+                        </label>
+                        <input type="tel" name="contact" class="form-input" placeholder="+91 9876543210" required>
+                        <div class="form-hint">Include both numbers if you have multiple contacts</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">
+                            Gender <span class="required">*</span>
+                        </label>
+                        <div class="radio-group">
+                            <div class="radio-item">
+                                <input type="radio" name="gender" value="Male" id="male" class="radio-input" required>
+                                <label for="male" class="radio-label">Male</label>
+                            </div>
+                            <div class="radio-item">
+                                <input type="radio" name="gender" value="Female" id="female" class="radio-input">
+                                <label for="female" class="radio-label">Female</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">
+                            Educational Qualification <span class="required">*</span>
+                        </label>
+                        <input type="text" name="education" class="form-input" placeholder="e.g., B.Tech, M.Sc, B.Ed" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">
+                            Complete Address <span class="required">*</span>
+                        </label>
+                        <textarea name="address" class="form-textarea" placeholder="Example: Flat 301, Maple Apartments, Near Kukatpally Metro Station, KPHB Colony, Hyderabad" required></textarea>
+                        <div class="form-hint">⚠️ IMPORTANT: Include flat/house number, building/colony name, nearby landmark, and area. This helps us send you student leads from your neighborhood.</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">
+                            Pincode <span class="required">*</span>
+                        </label>
+                        <input type="text" name="pincode" class="form-input" pattern="[0-9]{6}" placeholder="500001" required>
+                    </div>
+                </div>
+
+                <!-- Section 2: Teaching Details -->
+                <div class="form-section" data-section="2">
+                    <h2 class="section-title">Teaching Expertise</h2>
+
+                    <div class="form-group">
+                        <label class="form-label">
+                            Grades You Can Teach <span class="required">*</span>
+                        </label>
+                        <div class="form-hint">Select all that apply</div>
+                        <div class="checkbox-group">
+                            <div class="checkbox-item">
+                                <input type="checkbox" name="grades" value="grade 1" id="grade1" class="checkbox-input">
+                                <label for="grade1" class="checkbox-label">Grade 1</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" name="grades" value="grade 2" id="grade2" class="checkbox-input">
+                                <label for="grade2" class="checkbox-label">Grade 2</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" name="grades" value="grade 3" id="grade3" class="checkbox-input">
+                                <label for="grade3" class="checkbox-label">Grade 3</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" name="grades" value="grade 4" id="grade4" class="checkbox-input">
+                                <label for="grade4" class="checkbox-label">Grade 4</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" name="grades" value="grade 5" id="grade5" class="checkbox-input">
+                                <label for="grade5" class="checkbox-label">Grade 5</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" name="grades" value="grade 6" id="grade6" class="checkbox-input">
+                                <label for="grade6" class="checkbox-label">Grade 6</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" name="grades" value="grade 7" id="grade7" class="checkbox-input">
+                                <label for="grade7" class="checkbox-label">Grade 7</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" name="grades" value="grade 8" id="grade8" class="checkbox-input">
+                                <label for="grade8" class="checkbox-label">Grade 8</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" name="grades" value="grade 9" id="grade9" class="checkbox-input">
+                                <label for="grade9" class="checkbox-label">Grade 9</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" name="grades" value="grade 10" id="grade10" class="checkbox-input">
+                                <label for="grade10" class="checkbox-label">Grade 10</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" name="grades" value="grade 11" id="grade11" class="checkbox-input">
+                                <label for="grade11" class="checkbox-label">Grade 11</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" name="grades" value="grade 12" id="grade12" class="checkbox-input">
+                                <label for="grade12" class="checkbox-label">Grade 12</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" name="grades" value="IBDP 1" id="ibdp1" class="checkbox-input">
+                                <label for="ibdp1" class="checkbox-label">IBDP 1</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" name="grades" value="IBDP 2" id="ibdp2" class="checkbox-input">
+                                <label for="ibdp2" class="checkbox-label">IBDP 2</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" name="grades" value="A level" id="alevel" class="checkbox-input">
+                                <label for="alevel" class="checkbox-label">A Level</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" name="grades" value="As level" id="aslevel" class="checkbox-input">
+                                <label for="aslevel" class="checkbox-label">AS Level</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">
+                            Subjects You Can Teach <span class="required">*</span>
+                        </label>
+                        <div class="form-hint">Select all that apply</div>
+                        <div class="checkbox-group">
+                            <div class="checkbox-item">
+                                <input type="checkbox" name="subjects" value="Mathematics" id="maths" class="checkbox-input">
+                                <label for="maths" class="checkbox-label">Mathematics</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" name="subjects" value="Physics" id="physics" class="checkbox-input">
+                                <label for="physics" class="checkbox-label">Physics</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" name="subjects" value="Chemistry" id="chemistry" class="checkbox-input">
+                                <label for="chemistry" class="checkbox-label">Chemistry</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" name="subjects" value="Biology" id="biology" class="checkbox-input">
+                                <label for="biology" class="checkbox-label">Biology</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" name="subjects" value="Social sciences" id="social" class="checkbox-input">
+                                <label for="social" class="checkbox-label">Social Sciences</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" name="subjects" value="English" id="english" class="checkbox-input">
+                                <label for="english" class="checkbox-label">English</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" name="subjects" value="Hindi" id="hindi" class="checkbox-input">
+                                <label for="hindi" class="checkbox-label">Hindi</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" name="subjects" value="Telugu" id="telugu" class="checkbox-input">
+                                <label for="telugu" class="checkbox-label">Telugu</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" name="subjects" value="Economics" id="economics" class="checkbox-input">
+                                <label for="economics" class="checkbox-label">Economics</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" name="subjects" value="Accounts" id="accounts" class="checkbox-input">
+                                <label for="accounts" class="checkbox-label">Accounts</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" name="subjects" value="Business Studies" id="business" class="checkbox-input">
+                                <label for="business" class="checkbox-label">Business</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" name="subjects" value="IIT JEE Maths" id="jeemaths" class="checkbox-input">
+                                <label for="jeemaths" class="checkbox-label">JEE Maths</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" name="subjects" value="IIT JEE Physics" id="jeephysics" class="checkbox-input">
+                                <label for="jeephysics" class="checkbox-label">JEE Physics</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" name="subjects" value="IIT JEE Chemistry" id="jeechem" class="checkbox-input">
+                                <label for="jeechem" class="checkbox-label">JEE Chemistry</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">
+                            Board Knowledge <span class="required">*</span>
+                        </label>
+                        <div class="form-hint">Tip: IGCSE & IB knowledge helps you get premium leads</div>
+                        <div class="checkbox-group">
+                            <div class="checkbox-item">
+                                <input type="checkbox" name="boards" value="CBSE" id="cbse" class="checkbox-input">
+                                <label for="cbse" class="checkbox-label">CBSE</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" name="boards" value="ICSE" id="icse" class="checkbox-input">
+                                <label for="icse" class="checkbox-label">ICSE</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" name="boards" value="state board" id="state" class="checkbox-input">
+                                <label for="state" class="checkbox-label">State Board</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" name="boards" value="igcse" id="igcse" class="checkbox-input">
+                                <label for="igcse" class="checkbox-label">IGCSE</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" name="boards" value="IB" id="ib" class="checkbox-input">
+                                <label for="ib" class="checkbox-label">IB</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" name="boards" value="Cambridge" id="cambridge" class="checkbox-input">
+                                <label for="cambridge" class="checkbox-label">Cambridge</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">
+                            Teaching Experience <span class="required">*</span>
+                        </label>
+                        <textarea name="experience" class="form-textarea" placeholder="Include home tutoring and coaching experience" required></textarea>
+                    </div>
+                </div>
+
+                <!-- Section 3: Availability -->
+                <div class="form-section" data-section="3">
+                    <h2 class="section-title">Your Availability</h2>
+
+                    <div class="form-group">
+                        <label class="form-label">
+                            Available Days <span class="required">*</span>
+                        </label>
+                        <div class="checkbox-group">
+                            <div class="checkbox-item">
+                                <input type="checkbox" name="days" value="monday" id="monday" class="checkbox-input">
+                                <label for="monday" class="checkbox-label">Monday</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" name="days" value="tuesday" id="tuesday" class="checkbox-input">
+                                <label for="tuesday" class="checkbox-label">Tuesday</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" name="days" value="wednesday" id="wednesday" class="checkbox-input">
+                                <label for="wednesday" class="checkbox-label">Wednesday</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" name="days" value="thursday" id="thursday" class="checkbox-input">
+                                <label for="thursday" class="checkbox-label">Thursday</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" name="days" value="friday" id="friday" class="checkbox-input">
+                                <label for="friday" class="checkbox-label">Friday</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" name="days" value="saturday" id="saturday" class="checkbox-input">
+                                <label for="saturday" class="checkbox-label">Saturday</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" name="days" value="sunday" id="sunday" class="checkbox-input">
+                                <label for="sunday" class="checkbox-label">Sunday</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">
+                            Available Time Slots <span class="required">*</span>
+                        </label>
+                        <input type="text" name="timings" class="form-input" placeholder="e.g., 6 AM - 9 AM, 5 PM - 9 PM" required>
+                        <div class="form-hint">Mention your available time ranges</div>
+                    </div>
+                </div>
+
+                <!-- Section 4: Preferences -->
+                <div class="form-section" data-section="4">
+                    <h2 class="section-title">Teaching Preferences</h2>
+
+                    <div class="form-group">
+                        <label class="form-label">
+                            Online Teaching Tools <span class="required">*</span>
+                        </label>
+                        <div class="radio-group">
+                            <div class="radio-item">
+                                <input type="radio" name="onlineTools" value="yes" id="toolsYes" class="radio-input" required>
+                                <label for="toolsYes" class="radio-label">Yes, I have</label>
+                            </div>
+                            <div class="radio-item">
+                                <input type="radio" name="onlineTools" value="No" id="toolsNo" class="radio-input">
+                                <label for="toolsNo" class="radio-label">No</label>
+                            </div>
+                        </div>
+                        <div class="form-hint">Laptop/tablet with good internet for online classes</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">
+                            Lead Preference <span class="required">*</span>
+                        </label>
+                        <div class="radio-group">
+                            <div class="radio-item">
+                                <input type="radio" name="leadType" value="both" id="leadBoth" class="radio-input" required>
+                                <label for="leadBoth" class="radio-label">Both Online & Offline</label>
+                            </div>
+                            <div class="radio-item">
+                                <input type="radio" name="leadType" value="Online leads" id="leadOnline" class="radio-input">
+                                <label for="leadOnline" class="radio-label">Online Only</label>
+                            </div>
+                            <div class="radio-item">
+                                <input type="radio" name="leadType" value="Oflline leads" id="leadOffline" class="radio-input">
+                                <label for="leadOffline" class="radio-label">Offline Only</label>
+                            </div>
+                        </div>
+                        <div class="form-hint">Offline leads typically have better fees</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">
+                            Transportation <span class="required">*</span>
+                        </label>
+                        <div class="radio-group">
+                            <div class="radio-item">
+                                <input type="radio" name="vehicle" value="Yes" id="vehicleYes" class="radio-input" required>
+                                <label for="vehicleYes" class="radio-label">Own Vehicle</label>
+                            </div>
+                            <div class="radio-item">
+                                <input type="radio" name="vehicle" value="will take rapido" id="vehicleRapido" class="radio-input">
+                                <label for="vehicleRapido" class="radio-label">Will use Rapido</label>
+                            </div>
+                            <div class="radio-item">
+                                <input type="radio" name="vehicle" value="No" id="vehicleNo" class="radio-input">
+                                <label for="vehicleNo" class="radio-label">No vehicle</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">
+                            Coordinator Contacts Saved? <span class="required">*</span>
+                        </label>
+                        <div class="radio-group">
+                            <div class="radio-item">
+                                <input type="radio" name="contactsSaved" value="yes" id="savedYes" class="radio-input" required>
+                                <label for="savedYes" class="radio-label">Yes, saved both</label>
+                            </div>
+                            <div class="radio-item">
+                                <input type="radio" name="contactsSaved" value="will do it definitely" id="savedLater" class="radio-input">
+                                <label for="savedLater" class="radio-label">Will save now</label>
+                            </div>
+                        </div>
+                        <div class="form-hint">Save: 8639221271 & 7680012036</div>
+                    </div>
+                </div>
+
+                <!-- Navigation Buttons -->
+                <div class="button-group">
+                    <button type="button" class="btn btn-secondary" id="prevBtn" style="display: none;">
+                        ← Previous
+                    </button>
+                    <button type="button" class="btn btn-primary" id="nextBtn">
+                        Next →
+                    </button>
+                    <button type="submit" class="btn btn-primary" id="submitBtn" style="display: none;">
+                        Submit Application ✓
+                    </button>
+                </div>
+            </form>
+
+            <!-- Loading State -->
+            <div class="loading" id="loading">
+                <div class="spinner"></div>
+                <p>Submitting your application...</p>
+            </div>
+
+            <!-- Success Message -->
+            <div class="success-message" id="successMessage">
+                <div class="success-icon">✓</div>
+                <h2 class="success-title">Registration Successful!</h2>
+                <p class="success-text">
+                    Welcome to iiTuitions! You'll start receiving student leads directly on WhatsApp within 2 working days.
+                </p>
+                <a href="https://whatsapp.com/channel/0029Vad2uaIFcow7M2GZDY2i" class="whatsapp-btn" target="_blank">
+                    <span>📢</span>
+                    Join WhatsApp Channel for Daily Leads
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Google Form submission configuration
+        const GOOGLE_FORM_URL = 'https://docs.google.com/forms/u/0/d/e/1FAIpQLSdMm8gnXXYz3EebMivBnZnVfvwBlqyiU2IOmWIujhbnxv9TUg/formResponse';
         
-        <button class="hamb" id="hamb" aria-label="Menu"><span></span><span></span><span></span></button>
-        <nav class="menu" id="menu">
-          <a href="#process">How It Works</a>
-          <a href="#founder">Founder</a>
-          <a href="#contact">Contact</a>
-          <!-- ADDED: Mobile Menu Faculty Link -->
-          <a href="/register.html">👩‍🏫 Join as Faculty</a>
-        </nav>
-      </div>
-    </div>
-  </header>
+        // Field mapping - extracted from your Google Form
+        const FIELD_MAPPING = {
+            fullName: 'entry.964228262',      // Faculty Full Name
+            contact: 'entry.1990109450',      // Contact numbers
+            gender: 'entry.1262085699',       // Gender
+            grades: 'entry.550014062',        // Grades interested to teach
+            subjects: 'entry.297859727',      // Subjects interested to teach
+            education: 'entry.656953388',     // Educational Qualification
+            address: 'entry.1238275893',      // Address
+            pincode: 'entry.74318098',        // Residing Area pincode
+            experience: 'entry.1260824981',   // Teaching Experience
+            timings: 'entry.1386819377',      // Available timings
+            days: 'entry.141915591',          // Available Days
+            boards: 'entry.225571327',        // BOARDS you have knowledge in
+            onlineTools: 'entry.1229235963',  // if you want to teach online
+            leadType: 'entry.470702909',      // what kind of leads you looking for
+            vehicle: 'entry.1063699667',      // Do you have vehicle
+            contactsSaved: 'entry.1138128704' // Did you save coordinators numbers
+        };
 
-  <!-- Hero -->
-  <section class="hero">
-    <div class="wrap">
-      <div class="stats">
-        <div class="pill">✅ Hundreds of IITs/NITs</div>
-        <div class="pill">🏆 10+ Years Excellence</div>
-        <div class="pill">🎯 AIR under 100 • 1-on-1 only </div>
-        <div class="pill">⚡ Max 50 students because best faculty are always limited</div>
-      </div>
-      <h1>Transform Your Child's IIT Dreams into Reality</h1>
-      <p>Personal mentorship by IIT/NIT alumni. Precision assessments and recorded sessions that convert effort into ranks.</p>
-      <div class="hero-ctas">
-        <a class="btn btn-wa" href="https://wa.me/919010031000?text=Hi%20IITuitions%2C%20please%20book%20my%20free%20assessment" target="_blank" rel="noopener">💬 WhatsApp: Book Free Assessment</a>
-        <a class="btn btn-outline" href="tel:+919010031000">📞 Call: +91 9010031000</a>
-      </div>
-      <div class="guarantee-badge">🛡️ Progress Guarantee + 30-Day Money-Back</div>
-    </div>
-  </section>
+        // Multi-step form logic
+        let currentStep = 1;
+        const totalSteps = 4;
+        const form = document.getElementById('tutorForm');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const submitBtn = document.getElementById('submitBtn');
+        const loading = document.getElementById('loading');
+        const successMessage = document.getElementById('successMessage');
 
-  <!-- Trust -->
-  <section class="trust">
-    <div class="container trustgrid">
-      <div class="trustcard"><div class="big">93%</div>Success rate</div>
-      <div class="trustcard"><div class="big">30+</div>AIR &lt; 500</div>
-      <div class="trustcard"><div class="big">100%</div>IIT/NIT Alumni</div>
-      <div class="trustcard"><div class="big">10+ yrs</div>Excellence</div>
-    </div>
-  </section>
+        function showStep(step) {
+            // Hide all sections
+            document.querySelectorAll('.form-section').forEach(section => {
+                section.classList.remove('active');
+            });
 
-<!-- How it works -->
-<section id="process">
-  <div class="container">
-    <h2 class="section-title">How it works</h2>
+            // Show current section
+            document.querySelector(`[data-section="${step}"]`).classList.add('active');
 
-    <div class="how-photos" aria-label="How It Works — image strip">
-      <img src="i1.png" alt="How it works image 1">
-      <img src="i2.png" alt="How it works image 2">
-      <img src="i33.png" alt="How it works image 3">
-      <img src="i4.png" alt="How it works image 4">
-      <img src="i5.png" alt="How it works image 5">
-    </div>
-  </div>
-</section>
+            // Update step indicators
+            document.querySelectorAll('.step').forEach((stepEl, index) => {
+                const stepNum = index + 1;
+                if (stepNum < step) {
+                    stepEl.classList.add('completed');
+                    stepEl.classList.remove('active');
+                } else if (stepNum === step) {
+                    stepEl.classList.add('active');
+                    stepEl.classList.remove('completed');
+                } else {
+                    stepEl.classList.remove('active', 'completed');
+                }
+            });
 
-<!-- Assessment accordion -->
-<div class="accordion" id="examAcc">
-  <div class="acc-h"><span>❓ "Is the assessment an exam?"</span><span class="toggle">⌄</span></div>
-  <div class="acc-b">
-    <p>
-      Nope 🙂 — this isn't a memory-based test. Our IIT mentors <b>talk 1-on-1</b> with your child,
-      teach a <b>sample concept</b>, and ask a few <b>conceptual &amp; numerical questions</b>
-      to understand their <b>learning style</b>.
-    </p>
-    <p style="margin-top:8px;color:#475569;font-style:italic">
-      No marks. No stress. Pure understanding.
-    </p>
-    <div style="margin-top:8px;font-size:20px">✅</div>
-  </div>
-</div>
+            // Update buttons
+            prevBtn.style.display = step === 1 ? 'none' : 'block';
+            nextBtn.style.display = step === totalSteps ? 'none' : 'block';
+            submitBtn.style.display = step === totalSteps ? 'block' : 'none';
 
-  <!-- WhatsApp rail -->
-  <section class="wa-rail" style="background:#fff;padding:24px 0">
-    <style>
-      /* Square, tidy WhatsApp cards just for this section */
-      .wa-rail .shot .img{
-        aspect-ratio:3/4;
-        min-height:clamp(400px,64vw,640px);
-        background-size:cover;
-        background-position:center calc(-1 * var(--cropTop, 28px));
-        background-repeat:no-repeat;
-        background-color:#f1f5f9;
-        border-radius:12px;
-        box-shadow:0 10px 24px rgba(0,0,0,.06);
-      }
-      .wa-rail .shot .title{
-        margin-top:10px; font-weight:900; font-size:18px; line-height:1.35; color:#065f46;
-      }
-      .wa-rail .shot .img{ position: relative; }
-      .wa-rail .chip{
-        position: absolute;
-        top: 10px; left: 10px;
-        padding: 6px 10px;
-        background: rgba(255,255,255,0.92);
-        color: #0b1220;
-        border: 1px solid rgba(0,0,0,0.06);
-        border-radius: 999px;
-        font-weight: 600;
-        font-size: 14px;
-        backdrop-filter: blur(4px);
-      }
-      .section-sub{
-        font-size:22px;
-        font-weight:900;
-        text-align:center;
-        margin:12px 0 16px;
-        color:#0b1220;
-      }
-
-      .process .steps{ 
-        margin-top:12px;
-      }
-
-      @media (min-width:768px){
-        .section-sub{ font-size:28px; margin:10px 0 16px; }
-      }
-      /* Make the "Is this an exam?" header blue with white text */
-      #examAcc{ border:0; border-radius:14px; overflow:hidden; }
-      #examAcc .acc-h{
-        background:#0B112D;
-        color:#fff;
-        border:1px solid #0E1435;
-      }
-      #examAcc .acc-h .toggle{ color:#fff; }
-      #examAcc .acc-b{ border:1px solid var(--ring); border-top:0; }
-
-      /* FAQ: hide answers by default; show only on click */
-      #faqs .acc-b { display:none; }
-      #faqs .accordion.open .acc-b { display:inline-block; }
-
-      /* MOBILE: stack How It Works images one per row */
-      @media (max-width: 768px){
-        .how-photos{
-          display:block;
-          max-width:100%;
-          margin:12px 0;
-          padding:0 12px;
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
-        .how-photos img{
-          display:block;
-          width:100%;
-          height:auto;
-          margin:0 0 12px;
-          border-radius:12px;
-          flex:none;
-          max-width:none;
-          aspect-ratio:auto;
-          object-fit:contain;
+
+        function validateStep(step) {
+            const section = document.querySelector(`[data-section="${step}"]`);
+            const requiredInputs = section.querySelectorAll('input[required], textarea[required], select[required]');
+            
+            let isValid = true;
+            requiredInputs.forEach(input => {
+                if (input.type === 'checkbox' || input.type === 'radio') {
+                    const name = input.name;
+                    const checkedInputs = section.querySelectorAll(`input[name="${name}"]:checked`);
+                    if (checkedInputs.length === 0) {
+                        isValid = false;
+                    }
+                } else {
+                    if (!input.value.trim()) {
+                        isValid = false;
+                        input.style.borderColor = 'var(--accent)';
+                    } else {
+                        input.style.borderColor = 'var(--border)';
+                    }
+                }
+            });
+
+            return isValid;
         }
-        .how-photos img:last-child{ margin-bottom:0; }
-      }
-    </style>
 
-    <div class="container">
-      <h2 class="section-title">What Parents Text Us</h2>
+        nextBtn.addEventListener('click', () => {
+            if (validateStep(currentStep)) {
+                currentStep++;
+                showStep(currentStep);
+            } else {
+                alert('Please fill all required fields before proceeding.');
+            }
+        });
 
-      <div class="carousel-wrapper">
-        <div class="carousel" aria-label="Parent WhatsApp messages">
-          <div class="card-xl shot">
-            <div class="img" style="--cropTop:18px; background-image:url('6.png.jpeg');"></div>
-            <div class="title">From 58% in Jan → AIR 1898 — "Your roadmap + micro-tests changed everything"</div>
-          </div>
+        prevBtn.addEventListener('click', () => {
+            currentStep--;
+            showStep(currentStep);
+        });
 
-          <div class="card-xl shot">
-            <div class="img" style="--cropTop:18px; background-image:url('7.png.jpeg');"></div>
-            <div class="title">Micro-test 8/10; school weekly test jumped 9/20 → 14/20 — steady improvement</div>
-          </div>
+        // Form submission
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
 
-          <div class="card-xl shot">
-            <div class="img" style="--cropTop:16px; background-image:url('8.png.jpeg');"></div>
-            <div class="title">Referral from IIT-Bombay parent → booked free assessment → personalized roadmap</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+            if (!validateStep(currentStep)) {
+                alert('Please fill all required fields.');
+                return;
+            }
 
-  <!-- Toppers -->
-  <section class="success" id="success" style="padding:24px 0">
-    <div class="container">
-      <h2>
-        From Struggling to <span style="color:#16a34a">IIT Success 🚀</span><br>
-        Meet Our JEE Advanced Toppers
-      </h2>
+            // Show loading
+            form.style.display = 'none';
+            loading.classList.add('show');
 
-      <div class="carousel-wrapper" style="background:#f8fafc;border-radius:16px;padding:8px 0">
-        <div class="carousel" aria-label="Topper stories">
-          <article class="student-card">
-            <div class="student-photo" style="--focusY:22%; background-image:url('stu11.png');">
-              <div class="student-ribbon"></div>
-            </div>
-            <div class="student-body">
-              <div class="student-name">Sri Charan</div>
-              <div class="student-univ">IIT Bombay (Computer Science)</div>
-              <div class="student-quote">"Physics 45% → 96% with targeted mentoring, micro-tests and weekly parent reviews."</div>
-            </div>
-          </article>
+            // Create a temporary form that will submit directly to Google
+            const submitForm = document.createElement('form');
+            submitForm.action = GOOGLE_FORM_URL;
+            submitForm.method = 'POST';
+            submitForm.target = 'hidden_iframe';
+            submitForm.style.display = 'none';
 
-          <article class="student-card">
-            <div class="student-photo" style="--focusY:24%; background-image:url('stu22.png');">
-              <div class="student-ribbon"></div>
-            </div>
-            <div class="student-body">
-              <div class="student-name">Yashwitha</div>
-              <div class="student-univ">NIT Delhi</div>
-              <div class="student-quote">"Daily reviews → strong consistency. Doubt support + sprint drills fixed accuracy."</div>
-            </div>
-          </article>
+            // Create hidden iframe for submission
+            const iframe = document.createElement('iframe');
+            iframe.name = 'hidden_iframe';
+            iframe.style.display = 'none';
+            document.body.appendChild(iframe);
 
-          <article class="student-card">
-            <div class="student-photo" style="--focusY:20%; background-image:url('stu33.png');"></div>
-            <div class="student-body">
-              <div class="student-name">Arjun Sharma</div>
-              <div class="student-univ">IIT Madras</div>
-              <div class="student-quote">"Sprint drills + precise feedback → 52% to 94%. Course corrections every 2 weeks."</div>
-            </div>
-          </article>
-        </div>
-      </div>
-    </div>
-  </section>
+            // Add text inputs
+            ['fullName', 'contact', 'education', 'address', 'pincode', 'experience', 'timings'].forEach(field => {
+                const value = form.querySelector(`[name="${field}"]`).value;
+                const input = document.createElement('input');
+                input.type = 'hidden';
+                input.name = FIELD_MAPPING[field];
+                input.value = value;
+                submitForm.appendChild(input);
+                console.log(`✅ ${field} → ${FIELD_MAPPING[field]}: "${value}"`);
+            });
 
-  <!-- Founder -->
-  <section class="founder" id="founder">
-    <div class="container">
-      <div class="f-card">
-        <div class="f-left">
-          <img class="f-avatar" src="./prudhvi.png" alt="Prudhvi — Founder of iiTuitions" />
-        </div>
+            // Add radio buttons
+            ['gender', 'onlineTools', 'leadType', 'vehicle', 'contactsSaved'].forEach(field => {
+                const value = form.querySelector(`[name="${field}"]:checked`)?.value || '';
+                const input = document.createElement('input');
+                input.type = 'hidden';
+                input.name = FIELD_MAPPING[field];
+                input.value = value;
+                submitForm.appendChild(input);
+                console.log(`✅ ${field} → ${FIELD_MAPPING[field]}: "${value}"`);
+            });
 
-        <div class="f-right">
-          <h2 class="f-title">Founded by Prudhvi — <span class="f-title-strong">NIT Warangal</span></h2>
-          <div class="f-sub">(Former Physics HOD Hyderabad)</div>
+            // Add checkboxes (multiple values)
+            ['grades', 'subjects', 'boards', 'days'].forEach(field => {
+                const values = Array.from(form.querySelectorAll(`[name="${field}"]:checked`))
+                    .map(cb => cb.value);
+                
+                console.log(`📋 ${field} (${values.length} selected):`, values);
+                
+                // Google Forms expects multiple values for checkboxes - add each value separately
+                values.forEach(value => {
+                    const input = document.createElement('input');
+                    input.type = 'hidden';
+                    input.name = FIELD_MAPPING[field];
+                    input.value = value;
+                    submitForm.appendChild(input);
+                    console.log(`  ↳ ${FIELD_MAPPING[field]}: "${value}"`);
+                });
+            });
 
-          <div class="f-body">
-            <p>I worked as a <b>Physics HOD</b> in a large coaching centre. Classes of <b>80+</b> raced through the syllabus; many slipped behind because <b>batches were too big</b>. In <b>2017</b>, I decided to build the opposite.</p>
-          </div>
+            // Append form to body and submit
+            document.body.appendChild(submitForm);
+            
+            console.log('===========================================');
+            console.log('🚀 SUBMITTING TO GOOGLE FORM');
+            console.log('===========================================');
+            console.log('Form URL:', GOOGLE_FORM_URL);
+            console.log('Total inputs:', submitForm.querySelectorAll('input').length);
+            console.log('Form HTML:', submitForm.innerHTML.substring(0, 500) + '...');
+            console.log('===========================================');
+            
+            // Handle iframe load event
+            iframe.onload = function() {
+                console.log('✅ ✅ ✅ Form submitted successfully to Google Forms!');
+                console.log('Check your Google Form responses now!');
+                
+                // Show success message after short delay
+                setTimeout(() => {
+                    loading.classList.remove('show');
+                    successMessage.classList.add('show');
+                    
+                    // Clean up
+                    document.body.removeChild(submitForm);
+                    document.body.removeChild(iframe);
+                    
+                    // Reset form
+                    form.reset();
+                    currentStep = 1;
+                }, 1000);
+            };
 
-          <ul class="f-points">
-            <li><span class="icon">🎓</span><b>100% 1-on-1 classes</b> with IIT/NIT mentors</li>
-            <li><span class="icon">🎯</span><b><span class="text-yellow">Only 50 students/year</span></b> = quality over quantity</li>
-            <li><span class="icon">📞</span><b>Weekly parent reviews</b> • instant strategy corrections</li>
-          </ul>
+            // Submit the form
+            try {
+                submitForm.submit();
+            } catch (error) {
+                console.error('Submission error:', error);
+                alert('There was an error submitting your application. Please try again or contact us at 8639221271.');
+                loading.classList.remove('show');
+                form.style.display = 'block';
+                
+                // Clean up on error
+                if (document.body.contains(submitForm)) document.body.removeChild(submitForm);
+                if (document.body.contains(iframe)) document.body.removeChild(iframe);
+            }
+        });
 
-          <p style="margin:16px 0 6px">
-            At <b>iiTuitions</b>, we teach <b>one child at a time</b>. With limited intake, every child gets a plan, a mentor, and attention that's impossible in big batches.
-          </p>
-
-          <p style="margin-top:14px;font-style:italic;opacity:.95">"Even if it's one student, give 100% and teach them how to learn. Motivation first. Mastery next."</p>
-          <p style="margin-top:6px;opacity:.9">— <b>Prudhvi</b>, Founder, iiTuitions</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Video -->
-  <section id="mentoring-video" style="padding:24px 0;background:#fff">
-    <div class="container">
-      <h2 class="section-title" style="margin-bottom:8px">2-minute walkthrough of the mentoring system</h2>
-      <div class="yt-wrap" style="position:relative; width:100%; max-width:900px; margin:0 auto; border-radius:16px; overflow:hidden; background:#000; box-shadow:0 12px 28px rgba(0,0,0,.12);">
-        <iframe src="https://www.youtube.com/embed/-dA8MyVsFZM" title="iiTuitions video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="position:absolute; inset:0; width:100%; height:100%;"></iframe>
-        <div style="padding-top:56.25%"></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Comparison -->
-  <section class="compare" id="why" style="background:#f8fafc;padding:36px 0">
-    <div class="container" style="max-width:1100px;margin:0 auto">
-      <h2 class="section-title" style="margin-bottom:24px">
-        Why 80% of Students Struggle in Big Batches — And How <span style="color:#25D366">iiTuitions</span> Fixes It
-      </h2>
-
-      <div class="why-grid">
-        <div style="background:#fff;border:1px solid #f1f5f9;border-radius:18px;padding:22px;box-shadow:0 8px 24px rgba(0,0,0,.06)">
-          <h3 style="font-size:20px;font-weight:900;color:#ef4444;margin-bottom:14px">❌ Problems With Traditional Coaching</h3>
-          <ul style="list-style:none;padding:0;margin:0;font-size:16px;color:#1f2937;line-height:1.6">
-            <li style="margin-bottom:12px">🚫 <b>80+ students per batch</b> → zero personal help</li>
-            <li style="margin-bottom:12px">🚫 <b>Fast-paced teaching</b> → students left behind</li>
-            <li style="margin-bottom:12px">🚫 <b>No recorded sessions</b> → missed concepts = lost forever</li>
-            <li style="margin-bottom:14px">🚫 <b>No plan review</b> → mistakes repeat for months</li>
-            <li style="margin-bottom:12px">🚫 <b>Generic plans</b> → no focus on weak topics</li>
-            <li style="margin-bottom:12px">🚫 <b>Parents kept in dark</b> → no updates, no strategy corrections</li>
-          </ul>
-        </div>
-
-        <div style="background:#fff;border:1px solid #f1f5f9;border-radius:18px;padding:22px;box-shadow:0 8px 24px rgba(0,0,0,.06)">
-          <h3 style="font-size:20px;font-weight:900;color:#10b981;margin-bottom:14px">✅ How iiTuitions Does It Differently</h3>
-          <ul style="list-style:none;padding:0;margin:0;font-size:16px;color:#1f2937;line-height:1.6">
-            <li style="margin-bottom:12px">🎓 <b>Max 50 students/year</b> → true 1-on-1 mentorship</li>
-            <li style="margin-bottom:12px">🧩 <b>Custom roadmap</b> → tailored plan for every child</li>
-            <li style="margin-bottom:12px">🎥 <b>Recorded sessions</b> → revisit topics anytime</li>
-            <li style="margin-bottom:12px">📊 <b>Micro & macro tests</b> → instant strategy fixes</li>
-            <li style="margin-bottom:14px">💬 <b>Unlimited doubt support</b> → WhatsApp help anytime</li>
-            <li style="margin-bottom:14px">🔁 <b>15-day course-corrections</b> → mentor + parent alignment</li>
-            <li style="margin-bottom:14px">🔄 <b>Faculty replacement guarantee</b> → perfect mentor fit</li>
-            <li style="margin-bottom:12px">🤝 <b>Weekly parent reviews</b> → total clarity & transparency</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- GOOGLE REVIEWS -->
-  <style>
-    #reviews{background:#f8fafc;padding:40px 0}
-    #reviews .wrap{max-width:1100px;margin:0 auto;padding:0 12px}
-    #reviews .headline{ text-align:center;margin-bottom:12px;font-weight:900;line-height:1.2 }
-    #reviews .headline .em{ color:#10b981 }
-    .rating-box{ display:flex;align-items:center;justify-content:center;gap:10px;background:#fff;border:1px solid #eef2f7;border-radius:18px;padding:12px 16px;margin:0 auto 18px;box-shadow:0 10px 26px rgba(0,0,0,.06);max-width:720px;font-weight:800}
-    .glogo{display:inline-flex;align-items:center;gap:6px}
-    .glogo svg{width:18px;height:18px}
-    .stars{color:#facc15;font-size:18px;letter-spacing:1px}
-    .rev-rail{position:relative}
-    .rev-list{ display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory; padding:8px 2px 14px }
-    .rev-list::-webkit-scrollbar{display:none}
-    .rev-card{ scroll-snap-align=start;min-width:clamp(280px,78vw,360px); background:#fff;border:1px solid #eef2f7;border-radius:18px;padding:16px; box-shadow:0 12px 28px rgba(0,0,0,.06) }
-    .rev-head{display:flex;align-items:center;gap:12px;margin-bottom:8px}
-    .rev-avatar{width:46px;height:46px;border-radius:999px;object-fit:cover;background:#eef2f7;border:1px solid #e5e7eb}
-    .rev-name{font-weight:900}
-    .badge{font-weight:900;background:#f6f7f9;padding:2px 6px;border-radius:6px;display:inline-block}
-    .rev-meta{font-size:12px;opacity:.9}
-    .rev-stars{color:#facc15;margin:4px 0}
-    .rev-body{line-height:1.7}
-    .hi{font-weight:900;background:#f6f7f9;padding:2px 6px;border-radius:6px;display:inline-block}
-    .cta-stick{ position:sticky;bottom:6px;display:flex;justify-content:center;margin-top:18px }
-    .cta-stick .btn{ font-size:18px;padding:12px 24px }
-    #reviews, #reviews *{ color:#0b1220 !important; }
-    #reviews .stars, #reviews .rev-stars{ color:#facc15 !important; }
-    #reviews .btn-wa{ color:#fff !important; }
-  </style>
-
-  <section id="reviews">
-    <div class="wrap">
-      <h2 class="headline section-title">
-        4.9★ Rated by 200+ Parents — <span class="em">Why Families Choose iiTuitions Over Big Batches</span>
-      </h2>
-
-      <div class="rev-rail">
-        <div class="rev-list" aria-label="Parent reviews">
-          <article class="rev-card">
-            <div class="rev-head">
-              <img class="rev-avatar" src="./Srinivas%20Reddy.png" alt="Srinivas Reddy" width="46" height="46" loading="lazy">
-              <div>
-                <div class="rev-name">Srinivas Reddy <span class="badge">✔ Verified Parent</span></div>
-                <div class="rev-meta">Posted May 2025</div>
-              </div>
-            </div>
-            <div class="rev-stars">⭐️⭐️⭐️⭐️⭐️</div>
-            <p class="rev-body">Physics went from <span class="hi">48% → 90%</span> in just <span class="hi">8 weeks</span>. The <b>daily WhatsApp updates</b> kept us informed and confident.</p>
-          </article>
-
-          <article class="rev-card">
-            <div class="rev-head">
-              <img class="rev-avatar" src="./Meena%20Sharma.png" alt="Meena Sharma" width="46" height="46" loading="lazy">
-              <div>
-                <div class="rev-name">Meena Sharma <span class="badge">✔ Verified Parent</span></div>
-                <div class="rev-meta">Posted Apr 2025</div>
-              </div>
-            </div>
-            <div class="rev-stars">⭐️⭐️⭐️⭐️⭐️</div>
-            <p class="rev-body">True <span class="hi">1-on-1 mentorship</span>. Weekly review calls + <b>recorded sessions</b> were game changers.</p>
-          </article>
-
-          <article class="rev-card">
-            <div class="rev-head">
-              <img class="rev-avatar" src="./Arun%20Kumar.png" alt="Arun Kumar" width="46" height="46" loading="lazy">
-              <div>
-                <div class="rev-name">Arun Kumar <span class="badge">✔ Verified Parent</span></div>
-                <div class="rev-meta">Posted Feb 2025</div>
-              </div>
-            </div>
-            <div class="rev-stars">⭐️⭐️⭐️⭐️⭐️</div>
-            <p class="rev-body">Faculty replacement was instant when the fit wasn't right. <b>Total transparency</b> throughout.</p>
-          </article>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Mentors -->
-  <section id="mentors" style="background:#fff;padding:24px 0">
-    <style>
-      /* Mentors rail */
-      #mentors .wrap{max-width:1100px;margin:0 auto;padding:0 12px}
-      #mentors h2{font-weight:900;text-align:center;margin-bottom:12px}
-      .mentor-rail{position:relative}
-      .mentor-list{
-        display:flex;gap:16px;overflow-x:auto;padding:6px 2px 14px;
-        scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch
-      }
-      .mentor-list::-webkit-scrollbar{display:none}
-      .m-card{
-        scroll-snap-align:start;
-        min-width:clamp(260px,78vw,340px);
-        background:#0B112D;
-        border:1px solid #0E1435;
-        border-radius:16px;
-        padding:14px;
-        box-shadow:0 10px 26px rgba(11,17,45,.32);
-        color:#fff;
-      }
-      .m-name{ color:#fff; }
-      .m-meta{ color:#C7D2FE; }
-      .m-line{ color:#E5E7EB; }
-      .m-ava{
-        background:#0B112D;
-        border-color:rgba(255,255,255,.22);
-      }
-      .m-head{display:flex;align-items:center;gap:12px}
-      .m-ava{
-        width:76px;
-        height:76px;
-        border-radius:999px;
-        object-fit:cover;
-        object-position:50% 28%;
-        background:#0B112D;
-        border:3px solid rgba(255,255,255,.22);
-        box-shadow:0 8px 22px rgba(0,0,0,.08);
-      }
-      .m-name{font-weight:900;font-size:18px;line-height:1.2;color:#0b1220}
-      .m-meta{font-weight:700;font-size:13px;color:#475569}
-      .m-line{margin-top:10px;color:#111827}
-      #mentors .m-card{ color:#fff; }
-      #mentors .m-card .m-name{ color:#fff !important; }
-      #mentors .m-card .m-meta{ color:#C7D2FE !important; }
-      #mentors .m-card .m-line{ color:#E5E7EB !important; }
-      #mentors .m-card .m-ava{ border-color:rgba(255,255,255,.22); background:#0B112D; }
-      .m-cta{display:flex;justify-content:center;margin-top:8px}
-    </style>
-
-    <div class="wrap">
-      <h2 class="section-title">Your Child's Mentors</h2>
-
-      <div class="mentor-rail">
-        <div class="mentor-list" aria-label="Mentor cards">
-          <!-- Keshav -->
-          <article class="m-card">
-            <div class="m-head">
-              <img class="m-ava" src="keshav.png.jpeg" alt="Keshav — NIT Delhi, Mathematics" loading="lazy">
-              <div>
-                <div class="m-name">Keshav</div>
-                <div class="m-meta">NIT Delhi • Mathematics</div>
-              </div>
-            </div>
-            <p class="m-line">"Small drills daily; big scores monthly."</p>
-          </article>
-
-          <!-- Jyothi -->
-          <article class="m-card">
-            <div class="m-head">
-              <img class="m-ava" src="jyothi.png" alt="Jyothi — 13+ yrs Experience, Physics" loading="lazy">
-              <div>
-                <div class="m-name">Jyothi</div>
-                <div class="m-meta">13+ yrs Experienced Faculty • Physics</div>
-              </div>
-            </div>
-            <p class="m-line">"Concept → application in every session."</p>
-          </article>
-
-          <!-- Raghu Vamshi -->
-          <article class="m-card">
-            <div class="m-head">
-              <img class="m-ava" src="raghu-vamshi.png" alt="Raghu Vamshi — IIT Kanpur, Chemistry" loading="lazy">
-              <div>
-                <div class="m-name">Raghu Vamshi</div>
-                <div class="m-meta">IIT Kanpur • Chemistry</div>
-              </div>
-            </div>
-            <p class="m-line">"Organic mechanisms made simple with daily drills."</p>
-          </article>
-
-          <!-- Abrar -->
-          <article class="m-card">
-            <div class="m-head">
-              <img class="m-ava" src="abrar.png" alt="Abrar — IIT Bombay, Mathematics" loading="lazy">
-              <div>
-                <div class="m-name">Abrar</div>
-                <div class="m-meta">IIT Bombay • Mathematics</div>
-              </div>
-            </div>
-            <p class="m-line">"Calculus clarity that sticks for JEE."</p>
-          </article>
-        </div>
-      </div>
-
-      <div class="m-cta">
-        <a class="btn btn-wa" href="https://wa.me/919010031000?text=Hi%20IITuitions%2C%20please%20match%20a%20mentor%20to%20my%20child" target="_blank" rel="noopener">
-          💬 Match a Mentor to My Child
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- PROGRESS + TRIPLE GUARANTEE -->
-  <style>
-    .progress-sec{ background:#0a0a0a;color:#fff;padding:56px 0 }
-    .progress-wrap{max-width:1100px;margin:0 auto;padding:0 14px;display:grid;grid-template-columns:1.05fr .95fr;gap:28px;align-items:center}
-    .progress-title{font-weight:900;line-height:1.1;font-size:clamp(28px,5.4vw,54px);margin-bottom:14px}
-    .progress-copy{color:#d1d5db;font-size:clamp(15px,2.6vw,18px);line-height:1.85}
-    .progress-copy b{color:#fff}
-    .metric-card{ background:#0e1116;border:1px solid #1f2937;border-radius:18px; box-shadow:0 24px 60px rgba(0,0,0,.45);overflow:hidden }
-    .metric-row{display:grid;grid-template-columns:1fr;gap:0;border-bottom:1px solid #1f2937}
-    .metric{display:flex;gap:16px;align-items:center;padding:18px 20px}
-    .metric:last-child{border-top:1px solid #1f2937}
-    .metric-ic{ width:42px;height:42px;border-radius:12px;display:grid;place-items:center; background:#0b1220;border:1px solid #1f2937;font-size:20px }
-    .metric h4{margin:0;font-size:22px;font-weight:900}
-    .metric p{margin:4px 0 0;color:#aab1bb}
-    @media (max-width:860px){ .progress-wrap{grid-template-columns:1fr;gap:18px} }
-
-    #guarantee{ background:#f8fafc; padding:38px 0; }
-    #guarantee .wrap{ max-width:1100px; margin:0 auto; padding:0 12px; }
-    #guarantee .title{ text-align:center; font-weight:900; font-size:clamp(26px,5vw,46px); line-height:1.15; margin-bottom:18px; color:#0b1220; }
-    #guarantee .g-card{ background:#fff; border:1px solid #e2e8f0; border-radius:16px; box-shadow:none; overflow:hidden; }
-    #guarantee .g-row{ display:grid; grid-template-columns:280px 1fr; gap:18px; align-items:center; padding:26px 26px; border-bottom:1px solid #eef2f6; }
-    #guarantee .g-row:last-child{ border-bottom:none; }
-    #guarantee .g-row:hover{ background:#fafbff; }
-    #guarantee .g-left{ display:flex; align-items:flex-start; gap:14px; }
-    #guarantee .g-ico{ font-size:28px; line-height:1; }
-    #guarantee .g-h{ font-weight:900; color:#0b1220; font-size:clamp(18px,2.6vw,26px); line-height:1.25; }
-    #guarantee .g-copy{ color:#0f172a; font-size:clamp(15px,2.2vw,20px); }
-    #guarantee .strong{ font-weight:900; }
-    @media (max-width:820px){ #guarantee .g-row{ grid-template-columns:1fr; padding:18px 18px; gap:10px; } }
-  </style>
-
-  <section class="progress-sec">
-    <div class="progress-wrap">
-      <div>
-        <h2 class="progress-title">Your Child's Progress,<br>Tracked Every Step</h2>
-        <p class="progress-copy">
-          Before joining iiTuitions, Aarav was scoring just <b>42%</b> in Physics and struggled with problem-solving.<br><br>
-          After 8 weeks of 1-on-1 mentorship, he now confidently solves <b>80%+</b> and is among the top in his batch.<br><br>
-          Every test, session, and topic is tracked. Parents get weekly updates.
-        </p>
-      </div>
-      <aside class="metric-card" aria-label="Progress metrics">
-        <div class="metric-row">
-          <div class="metric"><div class="metric-ic">📈</div><div><h4>Physics Accuracy</h4><p>+38 pts in 6 weeks</p></div></div>
-          <div class="metric"><div class="metric-ic">⚡</div><div><h4>Speed (Q/min)</h4><p>+41% faster</p></div></div>
-          <div class="metric"><div class="metric-ic">🎯</div><div><h4>IIT Mock Percentile</h4><p>+22 points</p></div></div>
-        </div>
-      </aside>
-    </div>
-  </section>
-
-  <section id="guarantee">
-    <div class="wrap">
-      <h2 class="title">Our Triple Guarantee</h2>
-      <div class="g-card">
-        <div class="g-row">
-          <div class="g-left"><span class="g-ico">💰</span><div class="g-h">30-Day Money-Back</div></div>
-          <div class="g-copy">If you're not satisfied after joining, get a <span class="strong">full refund within 30 days</span> — no questions asked.</div>
-        </div>
-        <div class="g-row">
-          <div class="g-left"><span class="g-ico">📊</span><div class="g-h">Measurable Progress</div></div>
-          <div class="g-copy">If promised milestones aren't met, <span class="strong">we refund your fees.</span> Plans and outcomes are reviewed every <span class="strong">2 weeks.</span></div>
-        </div>
-        <div class="g-row">
-          <div class="g-left"><span class="g-ico">🎥</span><div class="g-h">Commitment Fulfillment</div></div>
-          <div class="g-copy">Every session is <span class="strong">recorded</span>, reviewed, and shared in weekly parent updates. 
-If we miss a promise, <span class="hl-yellow">you don't pay for it.</span></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FINAL CTA -->
-  <style>
-    .final-dark{ background:#0a0a0a; color:#fff; }
-    .final-wrap{ max-width:980px; margin:0 auto; padding:0 14px; }
-    #deadline{ padding:18px 0; border-top:1px solid rgba(255,255,255,.08); border-bottom:1px solid rgba(255,255,255,.08); text-align:center; }
-    .dead-top{ display:flex; justify-content:center; gap:8px; align-items:center; margin-bottom:6px; }
-    .dead-top b{ font-weight:800; }
-    .dead-timer{ font-variant-numeric:tabular-nums; letter-spacing:2px; font-weight:900; font-size:42px; text-align:center; line-height:1; }
-    .dead-sub{ opacity:.9; text-align:center; margin-top:6px; }
-    #final-cta{ padding:42px 0 60px; text-align:center; }
-    #final-cta h2{ font-size:clamp(26px,6vw,44px); line-height:1.15; font-weight:900; margin-bottom:10px; }
-    #final-cta p.lead{ opacity:.92; max-width:780px; margin:0 auto 16px; font-size:clamp(15px,3.2vw,18px); }
-    .cta-btn{ display:inline-flex; gap:10px; align-items:center; justify-content:center; padding:16px 28px; border-radius:999px; background:#000; color:#fff; font-weight:900; font-size:18px; border:2px solid rgba(255,255,255,0.15); box-shadow:0 14px 34px rgba(0,0,0,.35); transition:all .2s ease; }
-    .final-dark .cta-btn{
-      background: var(--wa);
-      border-color:#1fbf57;
-      color:#fff;
-    }
-    .final-dark .cta-btn:hover{
-      background:#20BA5A;
-    }
-    .cta-btn:hover{ background:#111; transform:scale(1.04); }
-    .about{ opacity:.85; max-width:760px; margin:18px auto 0; line-height:1.7; text-align:center; }
-    .float-btn{ position:fixed; z-index:60; bottom:16px; display:flex; align-items:center; justify-content:center; font-weight:900; box-shadow:0 8px 24px rgba(0,0,0,0.25); cursor:pointer; transition:all 0.2s ease; }
-    .float-wa{ left:16px; width:56px; height:56px; background:#25D366; color:#fff; border-radius:50%; font-size:26px; line-height:1; border:none; display:flex; align-items:center; justify-content:center; }
-    .float-cta{ right:16px; background:#000; color:#fff; padding:16px 28px; font-size:18px; border-radius:999px; border:2px solid rgba(0,0,0,0.08); }
-    .float-cta:hover{ background:#111; transform:scale(1.05); }
-    .float-wa:hover{ transform:scale(1.1); }
-    #final-cta{ padding-bottom:130px; }
-    @media (max-width:520px){
-      .float-wa{ width:50px; height:50px; font-size:24px; bottom:14px; }
-      .float-cta{ padding:14px 20px; font-size:16px; max-width:72%; text-align:center; }
-    }
-  </style>
-
-  <section id="deadline" class="final-dark">
-    <div class="final-wrap">
-      <div class="dead-top"><span>⚡</span><span>Limited 1-1 seats (7/30) for <b id="batchLabel"> October </b> batch</span></div>
-      <div class="dead-timer" id="timerBig">00:00:00</div>
-      <div class="dead-sub" id="deadlineSub">Applications close in <b id="daysLeft">2</b> days</div>
-    </div>
-  </section>
-
-  <section id="final-cta" class="final-dark">
-    <div class="final-wrap">
-      <h2>Your Child's IIT Dream Starts Now</h2>
-      <p class="lead">Join the exclusive cohort of 50 students who get personal mentorship from IIT/NIT toppers.</p>
-      <div class="cta-wrap">
-        <a class="cta-btn" href="https://wa.me/919010031000?text=Hi%20IITuitions%2C%20please%20book%20my%20free%20assessment" target="_blank" rel="noopener">📋 Book Your Child  Free Assessment Now</a>
-      </div>
-      <p class="about">Helping students crack IIT JEE examinations and secure admissions into premier IITs and NITs since 2017.</p>
-      
-      <!-- FAQs -->
-      <section id="faqs" class="faqs final-dark" style="padding:26px 0 8px">
-        <div class="final-wrap">
-          <h2 class="section-title" style="margin-bottom:10px">Frequently Asked Questions</h2>
-
-          <div class="accordion">
-            <div class="acc-h"><span>1. Is the free assessment an exam?</span><span class="toggle">⌄</span></div>
-            <div class="acc-b">
-              <p>No — it's not a test. Our IIT mentor personally interacts with your child, teaches a small topic, and asks conceptual &amp; numerical questions to understand their strengths, gaps, and learning style.</p>
-            </div>
-          </div>
-
-          <div class="accordion">
-            <div class="acc-h"><span>2. Who are the mentors at iiTuitions?</span><span class="toggle">⌄</span></div>
-            <div class="acc-b">
-              <p>Only IIT/NIT alumni and senior faculty with 8–12 years of experience teach here. No junior or part-time teachers.</p>
-            </div>
-          </div>
-
-          <div class="accordion">
-            <div class="acc-h"><span>3. How are classes conducted?</span><span class="toggle">⌄</span></div>
-            <div class="acc-b">
-              <p>Every session is 1-on-1 — just your child and the mentor. Sessions are online (Zoom/Meet) with both cameras on. You get daily WhatsApp updates and full transparency.</p>
-            </div>
-          </div>
-
-          <div class="accordion">
-            <div class="acc-h"><span>4. What if we're not satisfied with the mentor?</span><span class="toggle">⌄</span></div>
-            <div class="acc-b">
-              <p>You can switch your faculty anytime. We also have a "Progress Guarantee" — if promised milestones aren't met, you're eligible for a full refund.</p>
-            </div>
-          </div>
-
-          <div class="accordion">
-            <div class="acc-h"><span>5. What kind of students benefit the most?</span><span class="toggle">⌄</span></div>
-            <div class="acc-b">
-              <p>Students in <b>Grade 11 &amp; 12</b> who are preparing for <b>IIT JEE Mains &amp; Advanced</b>, especially those who:</p>
-              <ul class="bullets" style="margin-top:6px">
-                <li>Struggle to clear doubts in large coaching batches</li>
-                <li>Feel underconfident before exams</li>
-                <li>Want personalized, IIT-level problem-solving support</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-    </div>
-  </section>
-
-  <!-- ADDED: Footer -->
-  <footer class="footer">
-    <div class="bar">
-      <!-- ADDED: Faculty Registration Link in Footer -->
-      <a href="/register.html" class="footer-faculty-link">📝 Join as Faculty</a>
-      © 2017 iiTuitions Hub LLP — All rights reserved • Registered under Ministry of Corporate Affairs, Govt. of India
-    </div>
-  </footer>
-
-  <!-- Floating buttons -->
-  <a class="float-btn float-wa"
-     href="https://wa.me/919010031000?text=Hi%20IITuitions%2C%20please%20book%20my%20free%20assessment"
-     target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
-    <svg aria-hidden="true" width="28" height="28" viewBox="0 0 24 24" fill="none">
-      <path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.472-.149-.672.149-.198.297-.77.966-.944 1.164-.173.198-.347.223-.644.074-.297-.149-1.256-.463-2.392-1.476-.885-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.173.198-.297.298-.496.099-.198.05-.372-.025-.521-.075-.149-.672-1.611-.921-2.207-.243-.58-.487-.502-.672-.51-.173-.009-.372-.009-.571-.009-.198 0-.521.074-.794.372-.273.297-1.04 1.016-1.04 2.479s1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.262.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.718 2.007-1.411.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347Zm-5.421 7.341h-.003a9.867 9.867 0 0 1-5.031-1.378l-.361-.214-3.741.981.999-3.648-.236-.374a9.86 9.86 0 0 1-1.51-5.269c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.993c-.003 5.45-4.438 9.884-9.887 9.884Zm8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.305-1.654a11.87 11.87 0 0 0 5.709 1.455h.005c6.554 0 11.889-5.335 11.892-11.893a11.821 11.821 0 0 0-3.495-8.48Z"/>
-    </svg>
-  </a>
-
-  <a class="float-btn float-cta" href="https://wa.me/919010031000?text=Hi%20IITuitions%2C%20please%20book%20my%20free%20assessment" target="_blank" rel="noopener" aria-label="Book Free Assessment">📋 Book Free Assessment</a>
-
-  <script>
-    // Countdown (with guards for optional small timer)
-    const deadlineISO = new Date(Date.now() + 2*24*60*60*1000).toISOString();
-    const DLINE = new Date(deadlineISO);
-    const bigEl = document.getElementById('timerBig');
-    const smallEl = document.getElementById('timerSmall');
-    const daysLeftEl = document.getElementById('daysLeft');
-
-    function pad(n){ return String(n).padStart(2,'0'); }
-    function tick(){
-      const now = new Date();
-      let diff = Math.max(0, DLINE - now);
-      const d = Math.floor(diff / (24*60*60*1000)); diff -= d*24*60*60*1000;
-      const h = Math.floor(diff / (60*60*1000)); diff -= h*60*60*1000;
-      const m = Math.floor(diff / (60*1000)); diff -= m*60*1000;
-      const s = Math.floor(diff / 1000);
-      const hh = pad(d*24 + h);
-      const display = `${hh}:${pad(m)}:${pad(s)}`;
-      if (bigEl) bigEl.textContent = display;
-      if (smallEl) smallEl.textContent = display;
-      if (daysLeftEl) daysLeftEl.textContent = Math.max(0, d);
-
-      if(DLINE - now <= 0){
-        clearInterval(tmr);
-        if (bigEl) bigEl.textContent = '00:00:00';
-        if (smallEl) smallEl.textContent = '00:00:00';
-      }
-    }
-    const tmr = setInterval(tick, 1000); tick();
-    const month = DLINE.toLocaleString(undefined, { month:'long' });
-    const batchLabel = document.getElementById('batchLabel');
-    if (batchLabel) batchLabel.textContent = month;
-  </script>
-  
-  <script>
-    // Make every .accordion clickable (examAcc + scenarioAcc + others)
-    document.querySelectorAll('.accordion').forEach((acc) => {
-      const head = acc.querySelector('.acc-h');
-      const body = acc.querySelector('.acc-b');
-      if (!head || !body) return;
-
-      head.setAttribute('role','button');
-      head.setAttribute('tabindex','0');
-      head.setAttribute('aria-expanded','false');
-      body.setAttribute('aria-hidden','true');
-
-      function toggle() {
-        const isOpen = acc.classList.toggle('open');
-        head.setAttribute('aria-expanded', String(isOpen));
-        body.setAttribute('aria-hidden', String(!isOpen));
-      }
-
-      head.addEventListener('click', toggle);
-      head.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(); }
-      });
-    });
-  </script>
-  
-  <script>
-    // Track WhatsApp, Phone, and CTA clicks with Meta Pixel
-    (function(){
-      function trackWhatsAppClick(el){
-        try {
-          fbq('track', 'Contact', {
-            channel: 'WhatsApp',
-            content_name: el.getAttribute('aria-label') || el.textContent.trim() || 'WhatsApp',
-            content_category: 'Lead Gen'
-          });
-          fbq('trackCustom', 'WhatsAppClick', {
-            content_name: el.getAttribute('aria-label') || el.textContent.trim() || 'WhatsApp',
-            content_category: 'Lead Gen'
-          });
-        } catch(e){}
-      }
-
-      function trackPhoneClick(el){
-        try {
-          fbq('track', 'Contact', {
-            content_name: el.getAttribute('aria-label') || el.textContent.trim() || 'Phone Call',
-            content_category: 'Lead Gen'
-          });
-        } catch(e){}
-      }
-
-      document.addEventListener('click', function(e){
-        const a = e.target.closest('a[href]');
-        if(!a) return;
-
-        const href = a.getAttribute('href') || '';
-        if (href.startsWith('https://wa.me/')) {
-          trackWhatsAppClick(a);
-        } else if (href.startsWith('tel:')) {
-          trackPhoneClick(a);
-        }
-      }, true);
-    })();
-  </script>
-
+        // Initialize
+        showStep(1);
+    </script>
 </body>
 </html>
