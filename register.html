@@ -1157,80 +1157,102 @@
             form.style.display = 'none';
             loading.classList.add('show');
 
-            // Collect form data
-            const formData = new FormData();
-            
+            // Create a temporary form that will submit directly to Google
+            const submitForm = document.createElement('form');
+            submitForm.action = GOOGLE_FORM_URL;
+            submitForm.method = 'POST';
+            submitForm.target = 'hidden_iframe';
+            submitForm.style.display = 'none';
+
+            // Create hidden iframe for submission
+            const iframe = document.createElement('iframe');
+            iframe.name = 'hidden_iframe';
+            iframe.style.display = 'none';
+            document.body.appendChild(iframe);
+
             // Add text inputs
             ['fullName', 'contact', 'education', 'address', 'pincode', 'experience', 'timings'].forEach(field => {
                 const value = form.querySelector(`[name="${field}"]`).value;
-                formData.append(FIELD_MAPPING[field], value);
-                console.log(`${field}: ${value}`); // Debug logging
+                const input = document.createElement('input');
+                input.type = 'hidden';
+                input.name = FIELD_MAPPING[field];
+                input.value = value;
+                submitForm.appendChild(input);
+                console.log(`✅ ${field} → ${FIELD_MAPPING[field]}: "${value}"`);
             });
 
             // Add radio buttons
             ['gender', 'onlineTools', 'leadType', 'vehicle', 'contactsSaved'].forEach(field => {
                 const value = form.querySelector(`[name="${field}"]:checked`)?.value || '';
-                formData.append(FIELD_MAPPING[field], value);
-                console.log(`${field}: ${value}`); // Debug logging
+                const input = document.createElement('input');
+                input.type = 'hidden';
+                input.name = FIELD_MAPPING[field];
+                input.value = value;
+                submitForm.appendChild(input);
+                console.log(`✅ ${field} → ${FIELD_MAPPING[field]}: "${value}"`);
             });
 
             // Add checkboxes (multiple values)
             ['grades', 'subjects', 'boards', 'days'].forEach(field => {
                 const values = Array.from(form.querySelectorAll(`[name="${field}"]:checked`))
-                    .map(cb => cb.value)
-                    .join(', ');
-                formData.append(FIELD_MAPPING[field], values);
-                console.log(`${field}: ${values}`); // Debug logging
-            });
-
-            try {
-                console.log('Submitting to Google Form...'); // Debug logging
+                    .map(cb => cb.value);
                 
-                // Submit to Google Form using iframe method (more reliable)
-                const iframe = document.createElement('iframe');
-                iframe.style.display = 'none';
-                iframe.name = 'hidden_iframe';
-                document.body.appendChild(iframe);
-
-                const tempForm = document.createElement('form');
-                tempForm.target = 'hidden_iframe';
-                tempForm.method = 'POST';
-                tempForm.action = GOOGLE_FORM_URL;
+                console.log(`📋 ${field} (${values.length} selected):`, values);
                 
-                // Append all form data as hidden inputs
-                for (const [key, value] of formData.entries()) {
+                // Google Forms expects multiple values for checkboxes - add each value separately
+                values.forEach(value => {
                     const input = document.createElement('input');
                     input.type = 'hidden';
-                    input.name = key;
+                    input.name = FIELD_MAPPING[field];
                     input.value = value;
-                    tempForm.appendChild(input);
-                }
-                
-                document.body.appendChild(tempForm);
-                tempForm.submit();
-                
-                // Clean up after submission
-                setTimeout(() => {
-                    document.body.removeChild(tempForm);
-                    document.body.removeChild(iframe);
-                }, 1000);
+                    submitForm.appendChild(input);
+                    console.log(`  ↳ ${FIELD_MAPPING[field]}: "${value}"`);
+                });
+            });
 
-                console.log('Form submitted successfully!'); // Debug logging
+            // Append form to body and submit
+            document.body.appendChild(submitForm);
+            
+            console.log('===========================================');
+            console.log('🚀 SUBMITTING TO GOOGLE FORM');
+            console.log('===========================================');
+            console.log('Form URL:', GOOGLE_FORM_URL);
+            console.log('Total inputs:', submitForm.querySelectorAll('input').length);
+            console.log('Form HTML:', submitForm.innerHTML.substring(0, 500) + '...');
+            console.log('===========================================');
+            
+            // Handle iframe load event
+            iframe.onload = function() {
+                console.log('✅ ✅ ✅ Form submitted successfully to Google Forms!');
+                console.log('Check your Google Form responses now!');
                 
                 // Show success message after short delay
                 setTimeout(() => {
                     loading.classList.remove('show');
                     successMessage.classList.add('show');
-                }, 1500);
+                    
+                    // Clean up
+                    document.body.removeChild(submitForm);
+                    document.body.removeChild(iframe);
+                    
+                    // Reset form
+                    form.reset();
+                    currentStep = 1;
+                }, 1000);
+            };
 
-                // Reset form
-                form.reset();
-                currentStep = 1;
+            // Submit the form
+            try {
+                submitForm.submit();
             } catch (error) {
                 console.error('Submission error:', error);
-                alert('There was an error submitting your application. Please try again or contact us directly at 8639221271.');
+                alert('There was an error submitting your application. Please try again or contact us at 8639221271.');
                 loading.classList.remove('show');
                 form.style.display = 'block';
+                
+                // Clean up on error
+                if (document.body.contains(submitForm)) document.body.removeChild(submitForm);
+                if (document.body.contains(iframe)) document.body.removeChild(iframe);
             }
         });
 
