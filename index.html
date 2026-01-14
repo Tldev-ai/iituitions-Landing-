@@ -644,11 +644,9 @@ src="https://www.facebook.com/tr?id=3734412066776378&ev=PageView&noscript=1"
 /* when opened, show the body */
 .accordion.open .acc-b{ display:block; }
 
-/* ========== FACULTY REGISTRATION BUTTON STYLES - BULLETPROOF ========== */
-/* Base style - hidden on mobile by default */
-.faculty-btn-desktop {
-  display: none !important;
-  visibility: hidden;
+/* ========== TUTOR REGISTRATION BUTTON STYLES - HEADER ========== */
+.faculty-btn-header {
+  display: inline-flex !important;
   background: #000;
   color: #fff !important;
   padding: 10px 18px;
@@ -662,29 +660,21 @@ src="https://www.facebook.com/tr?id=3734412066776378&ev=PageView&noscript=1"
   white-space: nowrap;
 }
 
-.faculty-btn-desktop:hover {
+.faculty-btn-header:hover {
   background: #333;
   transform: translateY(-1px);
   color: #fff !important;
 }
 
-/* SHOW ON DESKTOP - 768px and up - MAXIMUM SPECIFICITY */
-@media screen and (min-width: 768px) {
-  .faculty-btn-desktop,
-  a.faculty-btn-desktop,
-  .header-row .faculty-btn-desktop,
-  .header-row a.faculty-btn-desktop,
-  .site-header .faculty-btn-desktop,
-  .site-header a.faculty-btn-desktop,
-  .site-header .header-row .faculty-btn-desktop,
-  .site-header .header-row a.faculty-btn-desktop,
-  .container .faculty-btn-desktop,
-  div .faculty-btn-desktop {
-    display: inline-flex !important;
-    visibility: visible !important;
+/* Size adjustments for mobile to prevent logo overlap */
+@media screen and (max-width: 767px) {
+  .faculty-btn-header {
+    padding: 8px 12px;
+    font-size: 12px;
+    gap: 4px;
   }
 }
-/* ========== END FACULTY BUTTON FIX ========== */
+/* ========== END TUTOR BUTTON STYLES ========== */
 
 /* Mobile menu faculty link */
 .menu a[href="/register.html"]{
@@ -719,9 +709,9 @@ src="https://www.facebook.com/tr?id=3734412066776378&ev=PageView&noscript=1"
         <span class="sr-only">iiTuitions</span>
       </a>
       <div style="position:relative;display:flex;gap:12px;align-items:center">
-        <!-- Desktop Faculty Button - FIXED with ID for JS fallback -->
-        <a href="/register.html" class="faculty-btn-desktop" id="facultyBtnDesktop">
-          👩‍🏫 Join as Faculty
+        <!-- Faculty Button - Visible on Mobile and Desktop -->
+        <a href="/register.html" class="faculty-btn-header" id="facultyBtn">
+          👩‍🏫 Join as Tutor
         </a>
         
         <button class="hamb" id="hamb" aria-label="Menu"><span></span><span></span><span></span></button>
@@ -729,7 +719,7 @@ src="https://www.facebook.com/tr?id=3734412066776378&ev=PageView&noscript=1"
           <a href="#process">How It Works</a>
           <a href="#founder">Founder</a>
           <a href="#contact">Contact</a>
-          <a href="/register.html">👩‍🏫 Join as Faculty</a>
+          <a href="/register.html">👩‍🏫 Join as Tutor</a>
         </nav>
       </div>
     </div>
@@ -1243,6 +1233,7 @@ src="https://www.facebook.com/tr?id=3734412066776378&ev=PageView&noscript=1"
     #guarantee .g-row:hover{ background:#fafbff; }
     #guarantee .g-left{ display:flex; align-items:flex-start; gap:14px; }
     #guarantee .g-ico{ font-size:28px; line-height:1; }
+    #guarantee .g-ico{ font-size:28px; line-height:1; }
     #guarantee .g-h{ font-weight:900; color:#0b1220; font-size:clamp(18px,2.6vw,26px); line-height:1.25; }
     #guarantee .g-copy{ color:#0f172a; font-size:clamp(15px,2.2vw,20px); }
     #guarantee .strong{ font-weight:900; }
@@ -1394,7 +1385,7 @@ If we miss a promise, <span class="hl-yellow">you don't pay for it.</span></div>
   <!-- Footer -->
   <footer class="footer">
     <div class="bar">
-      <a href="/register.html" class="footer-faculty-link">📝 Join as Faculty</a>
+      <a href="/register.html" class="footer-faculty-link">📝 Join as Tutor</a>
       © 2017 iiTuitions Hub LLP — All rights reserved • Registered under Ministry of Corporate Affairs, Govt. of India
     </div>
   </footer>
@@ -1506,33 +1497,6 @@ If we miss a promise, <span class="hl-yellow">you don't pay for it.</span></div>
           trackPhoneClick(a);
         }
       }, true);
-    })();
-  </script>
-
-  <!-- BULLETPROOF JavaScript fallback for faculty button visibility -->
-  <script>
-    // Ensure faculty button shows on desktop (fallback if CSS fails)
-    (function() {
-      var facultyBtn = document.getElementById('facultyBtnDesktop');
-      if (facultyBtn) {
-        function showOnDesktop() {
-          if (window.innerWidth >= 768) {
-            facultyBtn.style.cssText = 'display: inline-flex !important; visibility: visible !important;';
-          } else {
-            facultyBtn.style.cssText = 'display: none !important; visibility: hidden !important;';
-          }
-        }
-        // Run immediately
-        showOnDesktop();
-        // Run on DOM ready
-        if (document.readyState === 'loading') {
-          document.addEventListener('DOMContentLoaded', showOnDesktop);
-        }
-        // Run on window load (all resources loaded)
-        window.addEventListener('load', showOnDesktop);
-        // Run on resize
-        window.addEventListener('resize', showOnDesktop);
-      }
     })();
   </script>
 
