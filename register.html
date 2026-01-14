@@ -678,10 +678,10 @@
 
                     <div class="form-group">
                         <label class="form-label">
-                            Address <span class="required">*</span>
+                            Complete Address <span class="required">*</span>
                         </label>
-                        <textarea name="address" class="form-textarea" placeholder="Include area and landmark" required></textarea>
-                        <div class="form-hint">Exact location helps us match you with nearby students</div>
+                        <textarea name="address" class="form-textarea" placeholder="Example: Flat 301, Maple Apartments, Near Kukatpally Metro Station, KPHB Colony, Hyderabad" required></textarea>
+                        <div class="form-hint">⚠️ IMPORTANT: Include flat/house number, building/colony name, nearby landmark, and area. This helps us send you student leads from your neighborhood.</div>
                     </div>
 
                     <div class="form-group">
@@ -1164,12 +1164,14 @@
             ['fullName', 'contact', 'education', 'address', 'pincode', 'experience', 'timings'].forEach(field => {
                 const value = form.querySelector(`[name="${field}"]`).value;
                 formData.append(FIELD_MAPPING[field], value);
+                console.log(`${field}: ${value}`); // Debug logging
             });
 
             // Add radio buttons
             ['gender', 'onlineTools', 'leadType', 'vehicle', 'contactsSaved'].forEach(field => {
                 const value = form.querySelector(`[name="${field}"]:checked`)?.value || '';
                 formData.append(FIELD_MAPPING[field], value);
+                console.log(`${field}: ${value}`); // Debug logging
             });
 
             // Add checkboxes (multiple values)
@@ -1178,26 +1180,55 @@
                     .map(cb => cb.value)
                     .join(', ');
                 formData.append(FIELD_MAPPING[field], values);
+                console.log(`${field}: ${values}`); // Debug logging
             });
 
             try {
-                // Submit to Google Form
-                await fetch(GOOGLE_FORM_URL, {
-                    method: 'POST',
-                    mode: 'no-cors',
-                    body: formData
-                });
+                console.log('Submitting to Google Form...'); // Debug logging
+                
+                // Submit to Google Form using iframe method (more reliable)
+                const iframe = document.createElement('iframe');
+                iframe.style.display = 'none';
+                iframe.name = 'hidden_iframe';
+                document.body.appendChild(iframe);
 
-                // Show success message
-                loading.classList.remove('show');
-                successMessage.classList.add('show');
+                const tempForm = document.createElement('form');
+                tempForm.target = 'hidden_iframe';
+                tempForm.method = 'POST';
+                tempForm.action = GOOGLE_FORM_URL;
+                
+                // Append all form data as hidden inputs
+                for (const [key, value] of formData.entries()) {
+                    const input = document.createElement('input');
+                    input.type = 'hidden';
+                    input.name = key;
+                    input.value = value;
+                    tempForm.appendChild(input);
+                }
+                
+                document.body.appendChild(tempForm);
+                tempForm.submit();
+                
+                // Clean up after submission
+                setTimeout(() => {
+                    document.body.removeChild(tempForm);
+                    document.body.removeChild(iframe);
+                }, 1000);
+
+                console.log('Form submitted successfully!'); // Debug logging
+                
+                // Show success message after short delay
+                setTimeout(() => {
+                    loading.classList.remove('show');
+                    successMessage.classList.add('show');
+                }, 1500);
 
                 // Reset form
                 form.reset();
                 currentStep = 1;
             } catch (error) {
                 console.error('Submission error:', error);
-                alert('There was an error submitting your application. Please try again.');
+                alert('There was an error submitting your application. Please try again or contact us directly at 8639221271.');
                 loading.classList.remove('show');
                 form.style.display = 'block';
             }
