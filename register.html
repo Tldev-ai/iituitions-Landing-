@@ -43,258 +43,313 @@
         }
         .shake { animation: shake 0.3s ease-in-out 0s 2; }
 
-        /* Layout */
+        /* Background Animation */
+        .bg-animation {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: -1; opacity: 0.03;
+        }
+        .bg-animation::before, .bg-animation::after {
+            content: ''; position: absolute; width: 600px; height: 600px;
+            border-radius: 50%; background: var(--accent); filter: blur(100px);
+            animation: float 20s ease-in-out infinite;
+        }
+        .bg-animation::before { top: -200px; right: -200px; animation-delay: -5s; }
+        .bg-animation::after { bottom: -200px; left: -200px; animation-delay: -10s; }
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(100px, -100px) scale(1.1); }
+            66% { transform: translate(-100px, 100px) scale(0.9); }
+        }
+
         .container { max-width: 800px; margin: 0 auto; padding: 40px 24px; position: relative; }
 
-        .header { text-align: center; margin-bottom: 40px; }
-        .logo { font-family: 'DM Serif Display', serif; font-size: 2.5rem; color: var(--primary); margin-bottom: 8px; }
-        .tagline { color: var(--text-muted); font-size: 1.1rem; margin-bottom: 24px; }
+        /* Header */
+        .header { text-align: center; margin-bottom: 60px; }
+        .logo { font-family: 'DM Serif Display', serif; font-size: 2.5rem; color: var(--primary); margin-bottom: 12px; }
+        .tagline { color: var(--text-muted); font-size: 1.1rem; font-weight: 300; margin-bottom: 24px; }
 
-        .hero-stats { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; margin-top: 20px; }
+        .hero-stats { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; margin-top: 32px; }
         .stat-item { text-align: center; }
-        .stat-number { font-size: 1.8rem; font-weight: 700; color: var(--accent); display: block; }
-        .stat-label { font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; }
+        .stat-number { font-size: 2rem; font-weight: 700; color: var(--accent); display: block; }
+        .stat-label { font-size: 0.875rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; }
 
+        /* Form Container */
         .form-container {
             background: var(--surface);
             border-radius: 24px;
-            padding: 40px;
-            box-shadow: 0 10px 25px -5px rgba(0,0,0,0.1);
+            padding: 48px;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05);
             border: 1px solid var(--border);
         }
 
-        /* Progress Steps */
-        .steps-indicator { display: flex; justify-content: space-between; margin-bottom: 40px; position: relative; }
+        /* Step Indicators */
+        .steps-indicator { display: flex; justify-content: space-between; margin-bottom: 48px; position: relative; }
         .steps-indicator::before { content: ''; position: absolute; top: 20px; left: 0; right: 0; height: 2px; background: var(--border); z-index: 0; }
-        .step { display: flex; flex-direction: column; align-items: center; position: relative; z-index: 1; flex: 1; }
-        .step-circle { width: 40px; height: 40px; border-radius: 50%; background: var(--surface); border: 2px solid var(--border); display: flex; align-items: center; justify-content: center; font-weight: 600; color: var(--text-muted); transition: 0.3s; }
+        .step { display: flex; flex-direction: column; align-items: center; gap: 8px; position: relative; z-index: 1; flex: 1; }
+        .step-circle { width: 40px; height: 40px; border-radius: 50%; background: var(--surface); border: 2px solid var(--border); display: flex; align-items: center; justify-content: center; font-weight: 600; color: var(--text-muted); transition: all 0.3s ease; }
         .step.active .step-circle { background: var(--accent); border-color: var(--accent); color: white; transform: scale(1.1); }
         .step.completed .step-circle { background: var(--success); border-color: var(--success); color: white; }
-        .step-label { font-size: 0.7rem; color: var(--text-muted); margin-top: 8px; font-weight: 600; }
+        .step-label { font-size: 0.75rem; color: var(--text-muted); text-align: center; }
 
         /* Form Content */
         .form-section { display: none; }
-        .form-section.active { display: block; animation: fadeIn 0.4s ease; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        .form-section.active { display: block; animation: fadeIn 0.5s ease; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
-        .section-title { font-size: 1.4rem; color: var(--primary); margin-bottom: 24px; border-bottom: 2px solid var(--accent); display: inline-block; }
+        .section-title { font-size: 1.25rem; font-weight: 600; color: var(--primary); margin-bottom: 24px; padding-bottom: 12px; border-bottom: 2px solid var(--accent); }
         .form-group { margin-bottom: 24px; }
-        .form-label { display: block; margin-bottom: 8px; font-weight: 600; font-size: 0.95rem; }
-        .required { color: var(--accent); }
+        .form-label { display: block; margin-bottom: 8px; font-weight: 500; color: var(--text); font-size: 0.95rem; }
+        .required { color: var(--accent); margin-left: 4px; }
 
         .form-input, .form-textarea {
-            width: 100%; padding: 14px; border: 2px solid var(--border); border-radius: 12px; font-size: 1rem; font-family: inherit;
+            width: 100%; padding: 14px 16px; border: 2px solid var(--border); border-radius: 12px; 
+            font-family: inherit; font-size: 1rem; transition: all 0.3s ease; background: var(--surface);
         }
-        .form-input:focus { outline: none; border-color: var(--accent); }
-        .form-hint { font-size: 0.8rem; color: var(--text-muted); margin-top: 5px; }
+        .form-input:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 4px rgba(255, 107, 53, 0.1); }
+        .form-textarea { min-height: 100px; resize: vertical; }
+        .form-hint { font-size: 0.875rem; color: var(--text-muted); margin-top: 6px; font-style: italic; }
 
-        /* Grid for Checkboxes */
-        .checkbox-group { display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 10px; margin-top: 10px; }
-        .checkbox-item { position: relative; }
-        .checkbox-input { position: absolute; opacity: 0; }
-        .checkbox-label {
-            display: block; padding: 12px; border: 2px solid var(--border); border-radius: 10px; 
-            text-align: center; cursor: pointer; font-size: 0.85rem; transition: 0.2s; background: white;
+        /* Checkbox & Radio Groups */
+        .checkbox-group { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 12px; margin-top: 12px; }
+        .checkbox-input, .radio-input { position: absolute; opacity: 0; width: 0; height: 0; }
+        .checkbox-label, .radio-label {
+            display: flex; align-items: center; justify-content: center; padding: 12px 16px; border: 2px solid var(--border);
+            border-radius: 10px; cursor: pointer; transition: all 0.3s ease; font-size: 0.9rem; background: var(--surface); text-align: center;
         }
-        .checkbox-input:checked + .checkbox-label { background: var(--accent); border-color: var(--accent); color: white; font-weight: 600; }
+        .checkbox-input:checked + .checkbox-label, .radio-input:checked + .radio-label { 
+            background: var(--accent); border-color: var(--accent); color: white; font-weight: 500; 
+        }
 
-        /* Radio buttons */
-        .radio-group { display: flex; gap: 12px; flex-wrap: wrap; }
-        .radio-input { position: absolute; opacity: 0; }
-        .radio-label { padding: 12px 20px; border: 2px solid var(--border); border-radius: 10px; cursor: pointer; font-size: 0.9rem; }
-        .radio-input:checked + .radio-label { background: var(--accent); border-color: var(--accent); color: white; font-weight: 600; }
+        .radio-group { display: flex; gap: 16px; flex-wrap: wrap; }
 
         /* Buttons */
-        .button-group { display: flex; gap: 15px; margin-top: 30px; }
-        .btn { padding: 16px 30px; border-radius: 12px; font-weight: 700; cursor: pointer; border: none; font-family: inherit; flex: 1; transition: 0.3s; }
+        .button-group { display: flex; gap: 16px; margin-top: 40px; }
+        .btn { padding: 14px 32px; border-radius: 12px; font-size: 1rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease; border: none; font-family: inherit; flex: 1; display: inline-flex; align-items: center; justify-content: center; gap: 8px; }
         .btn-primary { background: var(--accent); color: white; }
-        .btn-primary:hover { background: var(--accent-light); }
-        .btn-secondary { background: #f3f4f6; color: var(--text); }
+        .btn-secondary { background: transparent; color: var(--text); border: 2px solid var(--border); }
 
-        /* State handling */
+        /* Success & Loading */
         .loading { display: none; text-align: center; padding: 40px; }
-        .spinner { width: 40px; height: 40px; border: 4px solid #f3f3f3; border-top: 4px solid var(--accent); border-radius: 50%; animation: spin 1s linear infinite; margin: 0 auto 20px; }
-        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        .loading.show { display: block; }
+        .spinner { width: 50px; height: 50px; border: 4px solid var(--border); border-top-color: var(--accent); border-radius: 50%; margin: 0 auto 24px; animation: spin 1s linear infinite; }
+        @keyframes spin { to { transform: rotate(360deg); } }
 
-        .success-message { display: none; text-align: center; padding: 20px; }
-        .success-icon { font-size: 4rem; color: var(--success); margin-bottom: 15px; }
-        .whatsapp-btn { background: #25D366; color: white; text-decoration: none; padding: 15px 25px; border-radius: 10px; display: inline-block; font-weight: 700; margin-top: 20px; }
+        .success-message { display: none; text-align: center; padding: 60px 40px; }
+        .success-message.show { display: block; }
+        .success-icon { width: 80px; height: 80px; border-radius: 50%; background: var(--success); margin: 0 auto 24px; display: flex; align-items: center; justify-content: center; font-size: 3rem; color: white; }
+        .whatsapp-btn { display: inline-flex; align-items: center; gap: 12px; background: #25D366; color: white; padding: 16px 32px; border-radius: 12px; text-decoration: none; font-weight: 600; }
 
-        @media (max-width: 600px) {
-            .form-container { padding: 25px 20px; }
+        @media (max-width: 768px) {
+            .form-container { padding: 32px 24px; }
             .button-group { flex-direction: column-reverse; }
+            .checkbox-group { grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); }
             .step-label { display: none; }
         }
     </style>
 </head>
 <body>
-
+    <div class="bg-animation"></div>
+    
     <div class="container">
         <div class="header">
             <h1 class="logo">iiTuitions</h1>
-            <p class="tagline">Faculty Registration Portal</p>
+            <p class="tagline">Join Our Elite Faculty Network</p>
             <div class="hero-stats">
                 <div class="stat-item"><span class="stat-number">11,000+</span><span class="stat-label">Tutors</span></div>
-                <div class="stat-item"><span class="stat-number">2 Days</span><span class="stat-label">Fast Leads</span></div>
+                <div class="stat-item"><span class="stat-number">2 Days</span><span class="stat-label">Get Leads</span></div>
+                <div class="stat-item"><span class="stat-number">Premium</span><span class="stat-label">Students</span></div>
             </div>
         </div>
 
         <div class="form-container">
-            <!-- Progress Bar -->
             <div class="steps-indicator">
-                <div class="step active" id="s1"><div class="step-circle">1</div><div class="step-label">Personal</div></div>
-                <div class="step" id="s2"><div class="step-circle">2</div><div class="step-label">Teaching</div></div>
-                <div class="step" id="s3"><div class="step-circle">3</div><div class="step-label">Availability</div></div>
-                <div class="step" id="s4"><div class="step-circle">4</div><div class="step-label">Final</div></div>
+                <div class="step active" data-step="1"><div class="step-circle">1</div><div class="step-label">Personal</div></div>
+                <div class="step" data-step="2"><div class="step-circle">2</div><div class="step-label">Teaching</div></div>
+                <div class="step" data-step="3"><div class="step-circle">3</div><div class="step-label">Availability</div></div>
+                <div class="step" data-step="4"><div class="step-circle">4</div><div class="step-label">Preferences</div></div>
             </div>
 
             <form id="tutorForm">
-                <!-- Step 1 -->
+                <!-- Section 1 -->
                 <div class="form-section active" data-section="1">
-                    <h2 class="section-title">Personal Details</h2>
+                    <h2 class="section-title">Personal Information</h2>
                     <div class="form-group">
                         <label class="form-label">Full Name <span class="required">*</span></label>
-                        <input type="text" name="fullName" class="form-input" placeholder="Enter your full name" required>
+                        <input type="text" name="fullName" class="form-input" required>
                     </div>
                     <div class="form-group">
-                        <label class="form-label">WhatsApp Number <span class="required">*</span></label>
-                        <input type="tel" name="contact" class="form-input" placeholder="10-digit number" maxlength="10" inputmode="numeric" required>
+                        <label class="form-label">Contact Number <span class="required">*</span></label>
+                        <input type="tel" name="contact" class="form-input" placeholder="+91 9876543210" required>
+                        <div class="form-hint">Must be 10 digits</div>
                     </div>
                     <div class="form-group">
                         <label class="form-label">Gender <span class="required">*</span></label>
                         <div class="radio-group">
-                            <label><input type="radio" name="gender" value="Male" class="radio-input" required><span class="radio-label">Male</span></label>
-                            <label><input type="radio" name="gender" value="Female" class="radio-input"><span class="radio-label">Female</span></label>
+                            <label class="radio-item"><input type="radio" name="gender" value="Male" class="radio-input" required><span class="radio-label">Male</span></label>
+                            <label class="radio-item"><input type="radio" name="gender" value="Female" class="radio-input"><span class="radio-label">Female</span></label>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="form-label">Education Qualification <span class="required">*</span></label>
-                        <input type="text" name="education" class="form-input" placeholder="e.g. M.Sc Physics, B.Tech" required>
+                        <label class="form-label">Educational Qualification <span class="required">*</span></label>
+                        <input type="text" name="education" class="form-input" placeholder="e.g., B.Tech, M.Sc, B.Ed" required>
                     </div>
                     <div class="form-group">
-                        <label class="form-label">Full Address <span class="required">*</span></label>
-                        <textarea name="address" class="form-textarea" placeholder="Flat No, Building, Landmark, Area" required></textarea>
+                        <label class="form-label">Complete Address <span class="required">*</span></label>
+                        <textarea name="address" class="form-textarea" placeholder="Flat No, Building, Area, Landmark..." required></textarea>
+                        <div class="form-hint">⚠️ IMPORTANT: Include nearby landmark and area to get local student leads.</div>
                     </div>
                     <div class="form-group">
-                        <label class="form-label">Area Pincode <span class="required">*</span></label>
-                        <input type="text" name="pincode" class="form-input" maxlength="6" inputmode="numeric" placeholder="6-digit pincode" required>
+                        <label class="form-label">Pincode <span class="required">*</span></label>
+                        <input type="text" name="pincode" class="form-input" maxlength="6" placeholder="500001" required>
                     </div>
                 </div>
 
-                <!-- Step 2 -->
+                <!-- Section 2 -->
                 <div class="form-section" data-section="2">
                     <h2 class="section-title">Teaching Expertise</h2>
                     <div class="form-group">
-                        <label class="form-label">Grades You Can Teach (Pick at least one) <span class="required">*</span></label>
+                        <label class="form-label">Grades You Can Teach <span class="required">*</span></label>
                         <div class="checkbox-group">
-                            <label><input type="checkbox" name="grades" value="1-5" class="checkbox-input"><span class="checkbox-label">Grade 1-5</span></label>
-                            <label><input type="checkbox" name="grades" value="6-10" class="checkbox-input"><span class="checkbox-label">Grade 6-10</span></label>
-                            <label><input type="checkbox" name="grades" value="11-12" class="checkbox-input"><span class="checkbox-label">Grade 11-12</span></label>
-                            <label><input type="checkbox" name="grades" value="IIT-JEE" class="checkbox-input"><span class="checkbox-label">IIT-JEE/NEET</span></label>
-                            <label><input type="checkbox" name="grades" value="IBDP" class="checkbox-input"><span class="checkbox-label">IBDP/A-Level</span></label>
+                            <label class="checkbox-item"><input type="checkbox" name="grades" value="grade 1" class="checkbox-input"><span class="checkbox-label">Grade 1</span></label>
+                            <label class="checkbox-item"><input type="checkbox" name="grades" value="grade 2" class="checkbox-input"><span class="checkbox-label">Grade 2</span></label>
+                            <label class="checkbox-item"><input type="checkbox" name="grades" value="grade 3" class="checkbox-input"><span class="checkbox-label">Grade 3</span></label>
+                            <label class="checkbox-item"><input type="checkbox" name="grades" value="grade 4" class="checkbox-input"><span class="checkbox-label">Grade 4</span></label>
+                            <label class="checkbox-item"><input type="checkbox" name="grades" value="grade 5" class="checkbox-input"><span class="checkbox-label">Grade 5</span></label>
+                            <label class="checkbox-item"><input type="checkbox" name="grades" value="grade 6" class="checkbox-input"><span class="checkbox-label">Grade 6</span></label>
+                            <label class="checkbox-item"><input type="checkbox" name="grades" value="grade 7" class="checkbox-input"><span class="checkbox-label">Grade 7</span></label>
+                            <label class="checkbox-item"><input type="checkbox" name="grades" value="grade 8" class="checkbox-input"><span class="checkbox-label">Grade 8</span></label>
+                            <label class="checkbox-item"><input type="checkbox" name="grades" value="grade 9" class="checkbox-input"><span class="checkbox-label">Grade 9</span></label>
+                            <label class="checkbox-item"><input type="checkbox" name="grades" value="grade 10" class="checkbox-input"><span class="checkbox-label">Grade 10</span></label>
+                            <label class="checkbox-item"><input type="checkbox" name="grades" value="grade 11" class="checkbox-input"><span class="checkbox-label">Grade 11</span></label>
+                            <label class="checkbox-item"><input type="checkbox" name="grades" value="grade 12" class="checkbox-input"><span class="checkbox-label">Grade 12</span></label>
+                            <label class="checkbox-item"><input type="checkbox" name="grades" value="IBDP 1" class="checkbox-input"><span class="checkbox-label">IBDP 1</span></label>
+                            <label class="checkbox-item"><input type="checkbox" name="grades" value="IBDP 2" class="checkbox-input"><span class="checkbox-label">IBDP 2</span></label>
+                            <label class="checkbox-item"><input type="checkbox" name="grades" value="A level" class="checkbox-input"><span class="checkbox-label">A Level</span></label>
+                            <label class="checkbox-item"><input type="checkbox" name="grades" value="As level" class="checkbox-input"><span class="checkbox-label">AS Level</span></label>
                         </div>
                     </div>
+
                     <div class="form-group">
-                        <label class="form-label">Subjects (Pick at least one) <span class="required">*</span></label>
+                        <label class="form-label">Subjects You Can Teach <span class="required">*</span></label>
                         <div class="checkbox-group">
-                            <label><input type="checkbox" name="subjects" value="Maths" class="checkbox-input"><span class="checkbox-label">Maths</span></label>
-                            <label><input type="checkbox" name="subjects" value="Physics" class="checkbox-input"><span class="checkbox-label">Physics</span></label>
-                            <label><input type="checkbox" name="subjects" value="Chemistry" class="checkbox-input"><span class="checkbox-label">Chemistry</span></label>
-                            <label><input type="checkbox" name="subjects" value="Biology" class="checkbox-input"><span class="checkbox-label">Biology</span></label>
-                            <label><input type="checkbox" name="subjects" value="English" class="checkbox-input"><span class="checkbox-label">English</span></label>
+                            <label class="checkbox-item"><input type="checkbox" name="subjects" value="Mathematics" class="checkbox-input"><span class="checkbox-label">Maths</span></label>
+                            <label class="checkbox-item"><input type="checkbox" name="subjects" value="Physics" class="checkbox-input"><span class="checkbox-label">Physics</span></label>
+                            <label class="checkbox-item"><input type="checkbox" name="subjects" value="Chemistry" class="checkbox-input"><span class="checkbox-label">Chemistry</span></label>
+                            <label class="checkbox-item"><input type="checkbox" name="subjects" value="Biology" class="checkbox-input"><span class="checkbox-label">Biology</span></label>
+                            <label class="checkbox-item"><input type="checkbox" name="subjects" value="Social sciences" class="checkbox-input"><span class="checkbox-label">Social Sci.</span></label>
+                            <label class="checkbox-item"><input type="checkbox" name="subjects" value="English" class="checkbox-input"><span class="checkbox-label">English</span></label>
+                            <label class="checkbox-item"><input type="checkbox" name="subjects" value="Hindi" class="checkbox-input"><span class="checkbox-label">Hindi</span></label>
+                            <label class="checkbox-item"><input type="checkbox" name="subjects" value="Telugu" class="checkbox-input"><span class="checkbox-label">Telugu</span></label>
+                            <label class="checkbox-item"><input type="checkbox" name="subjects" value="Economics" class="checkbox-input"><span class="checkbox-label">Economics</span></label>
+                            <label class="checkbox-item"><input type="checkbox" name="subjects" value="Accounts" class="checkbox-input"><span class="checkbox-label">Accounts</span></label>
+                            <label class="checkbox-item"><input type="checkbox" name="subjects" value="Business Studies" class="checkbox-input"><span class="checkbox-label">Business</span></label>
+                            <label class="checkbox-item"><input type="checkbox" name="subjects" value="IIT JEE Maths" class="checkbox-input"><span class="checkbox-label">JEE Maths</span></label>
+                            <label class="checkbox-item"><input type="checkbox" name="subjects" value="IIT JEE Physics" class="checkbox-input"><span class="checkbox-label">JEE Physics</span></label>
+                            <label class="checkbox-item"><input type="checkbox" name="subjects" value="IIT JEE Chemistry" class="checkbox-input"><span class="checkbox-label">JEE Chem</span></label>
                         </div>
                     </div>
+
                     <div class="form-group">
                         <label class="form-label">Board Knowledge <span class="required">*</span></label>
                         <div class="checkbox-group">
-                            <label><input type="checkbox" name="boards" value="CBSE" class="checkbox-input"><span class="checkbox-label">CBSE</span></label>
-                            <label><input type="checkbox" name="boards" value="ICSE" class="checkbox-input"><span class="checkbox-label">ICSE</span></label>
-                            <label><input type="checkbox" name="boards" value="IGCSE" class="checkbox-input"><span class="checkbox-label">IGCSE/IB</span></label>
+                            <label class="checkbox-item"><input type="checkbox" name="boards" value="CBSE" class="checkbox-input"><span class="checkbox-label">CBSE</span></label>
+                            <label class="checkbox-item"><input type="checkbox" name="boards" value="ICSE" class="checkbox-input"><span class="checkbox-label">ICSE</span></label>
+                            <label class="checkbox-item"><input type="checkbox" name="boards" value="state board" class="checkbox-input"><span class="checkbox-label">State</span></label>
+                            <label class="checkbox-item"><input type="checkbox" name="boards" value="igcse" class="checkbox-input"><span class="checkbox-label">IGCSE</span></label>
+                            <label class="checkbox-item"><input type="checkbox" name="boards" value="IB" class="checkbox-input"><span class="checkbox-label">IB</span></label>
+                            <label class="checkbox-item"><input type="checkbox" name="boards" value="Cambridge" class="checkbox-input"><span class="checkbox-label">Cambridge</span></label>
                         </div>
                     </div>
+
                     <div class="form-group">
                         <label class="form-label">Teaching Experience <span class="required">*</span></label>
-                        <textarea name="experience" class="form-textarea" placeholder="e.g. 5 years of Home Tutoring" required></textarea>
+                        <textarea name="experience" class="form-textarea" placeholder="Include years and past results..." required></textarea>
                     </div>
                 </div>
 
-                <!-- Step 3 -->
+                <!-- Section 3 -->
                 <div class="form-section" data-section="3">
                     <h2 class="section-title">Availability</h2>
                     <div class="form-group">
-                        <label class="form-label">Days Available <span class="required">*</span></label>
+                        <label class="form-label">Available Days <span class="required">*</span></label>
                         <div class="checkbox-group">
-                            <label><input type="checkbox" name="days" value="Weekdays" class="checkbox-input"><span class="checkbox-label">Weekdays</span></label>
-                            <label><input type="checkbox" name="days" value="Weekends" class="checkbox-input"><span class="checkbox-label">Weekends</span></label>
+                            <label class="checkbox-item"><input type="checkbox" name="days" value="monday" class="checkbox-input"><span class="checkbox-label">Mon</span></label>
+                            <label class="checkbox-item"><input type="checkbox" name="days" value="tuesday" class="checkbox-input"><span class="checkbox-label">Tue</span></label>
+                            <label class="checkbox-item"><input type="checkbox" name="days" value="wednesday" class="checkbox-input"><span class="checkbox-label">Wed</span></label>
+                            <label class="checkbox-item"><input type="checkbox" name="days" value="thursday" class="checkbox-input"><span class="checkbox-label">Thu</span></label>
+                            <label class="checkbox-item"><input type="checkbox" name="days" value="friday" class="checkbox-input"><span class="checkbox-label">Fri</span></label>
+                            <label class="checkbox-item"><input type="checkbox" name="days" value="saturday" class="checkbox-input"><span class="checkbox-label">Sat</span></label>
+                            <label class="checkbox-item"><input type="checkbox" name="days" value="sunday" class="checkbox-input"><span class="checkbox-label">Sun</span></label>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="form-label">Time Slots <span class="required">*</span></label>
-                        <input type="text" name="timings" class="form-input" placeholder="e.g. 4 PM - 8 PM" required>
+                        <label class="form-label">Available Time Slots <span class="required">*</span></label>
+                        <input type="text" name="timings" class="form-input" placeholder="e.g., 6 AM - 9 AM, 5 PM - 9 PM" required>
                     </div>
                 </div>
 
-                <!-- Step 4 -->
+                <!-- Section 4 -->
                 <div class="form-section" data-section="4">
-                    <h2 class="section-title">Preferences & Confirmation</h2>
+                    <h2 class="section-title">Teaching Preferences</h2>
                     <div class="form-group">
-                        <label class="form-label">Preferred Lead Type <span class="required">*</span></label>
+                        <label class="form-label">Online Teaching Tools? <span class="required">*</span></label>
                         <div class="radio-group">
-                            <label><input type="radio" name="leadType" value="Online" class="radio-input" required><span class="radio-label">Online</span></label>
-                            <label><input type="radio" name="leadType" value="Offline" class="radio-input"><span class="radio-label">Offline</span></label>
-                            <label><input type="radio" name="leadType" value="Both" class="radio-input"><span class="radio-label">Both</span></label>
+                            <label class="radio-item"><input type="radio" name="onlineTools" value="yes" class="radio-input" required><span class="radio-label">Yes, I have</span></label>
+                            <label class="radio-item"><input type="radio" name="onlineTools" value="No" class="radio-input"><span class="radio-label">No</span></label>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="form-label">Do you have your own vehicle? <span class="required">*</span></label>
+                        <label class="form-label">Lead Preference <span class="required">*</span></label>
                         <div class="radio-group">
-                            <label><input type="radio" name="vehicle" value="Yes" class="radio-input" required><span class="radio-label">Yes</span></label>
-                            <label><input type="radio" name="vehicle" value="No" class="radio-input"><span class="radio-label">No</span></label>
+                            <label class="radio-item"><input type="radio" name="leadType" value="both" class="radio-input" required><span class="radio-label">Both</span></label>
+                            <label class="radio-item"><input type="radio" name="leadType" value="Online leads" class="radio-input"><span class="radio-label">Online</span></label>
+                            <label class="radio-item"><input type="radio" name="leadType" value="Oflline leads" class="radio-input"><span class="radio-label">Offline</span></label>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="form-label">Online Teaching Tools? (Laptop/Tablet) <span class="required">*</span></label>
+                        <label class="form-label">Transportation <span class="required">*</span></label>
                         <div class="radio-group">
-                            <label><input type="radio" name="onlineTools" value="Yes" class="radio-input" required><span class="radio-label">Yes</span></label>
-                            <label><input type="radio" name="onlineTools" value="No" class="radio-input"><span class="radio-label">No</span></label>
+                            <label class="radio-item"><input type="radio" name="vehicle" value="Yes" class="radio-input" required><span class="radio-label">Own Vehicle</span></label>
+                            <label class="radio-item"><input type="radio" name="vehicle" value="will take rapido" class="radio-input"><span class="radio-label">Rapido/Auto</span></label>
+                            <label class="radio-item"><input type="radio" name="vehicle" value="No" class="radio-input"><span class="radio-label">No Vehicle</span></label>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="form-label">Have you saved our numbers? <span class="required">*</span></label>
+                        <label class="form-label">Coordinator Contacts Saved? <span class="required">*</span></label>
                         <div class="radio-group">
-                            <label><input type="radio" name="contactsSaved" value="Yes" class="radio-input" required><span class="radio-label">Yes, Saved</span></label>
+                            <label class="radio-item"><input type="radio" name="contactsSaved" value="yes" class="radio-input" required><span class="radio-label">Yes, Saved</span></label>
                         </div>
-                        <p class="form-hint">Save: 8639221271 & 7680012036</p>
                     </div>
                 </div>
 
                 <div class="button-group">
                     <button type="button" class="btn btn-secondary" id="prevBtn" style="display: none;">Back</button>
                     <button type="button" class="btn btn-primary" id="nextBtn">Next</button>
-                    <button type="submit" class="btn btn-primary" id="submitBtn" style="display: none;">Submit Registration</button>
+                    <button type="submit" class="btn btn-primary" id="submitBtn" style="display: none;">Submit Application</button>
                 </div>
             </form>
 
             <div class="loading" id="loading">
                 <div class="spinner"></div>
-                <p>Registering your profile, please wait...</p>
+                <p>Registering your profile...</p>
             </div>
 
             <div class="success-message" id="successMessage">
                 <div class="success-icon">✓</div>
-                <h2>Registration Complete!</h2>
-                <p>We have received your details. You will start getting leads on WhatsApp within 48 hours.</p>
-                <a href="https://whatsapp.com/channel/0029Vad2uaIFcow7M2GZDY2i" class="whatsapp-btn">Join WhatsApp Channel for Leads</a>
+                <h2 class="section-title" style="border:none">Registration Successful!</h2>
+                <p style="margin-bottom:24px">Welcome to iiTuitions! Leads will start on WhatsApp within 48 hours.</p>
+                <a href="https://whatsapp.com/channel/0029Vad2uaIFcow7M2GZDY2i" class="whatsapp-btn" target="_blank">Join Channel for Leads</a>
             </div>
         </div>
     </div>
 
-    <!-- Hidden Iframe to handle Google submission without leaving the page -->
+    <!-- Hidden Iframe to prevent redirect -->
     <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
 
     <script>
-        // Google Form URL and IDs
         const FORM_URL = 'https://docs.google.com/forms/u/0/d/e/1FAIpQLSdMm8gnXXYz3EebMivBnZnVfvwBlqyiU2IOmWIujhbnxv9TUg/formResponse';
+        
         const FIELD_MAP = {
             fullName: 'entry.964228262',
             contact: 'entry.1990109450',
@@ -320,108 +375,77 @@
         const prevBtn = document.getElementById('prevBtn');
         const submitBtn = document.getElementById('submitBtn');
 
-        function updateSteps(step) {
+        function showStep(step) {
+            document.querySelectorAll('.form-section').forEach(s => s.classList.remove('active'));
+            document.querySelector(`[data-section="${step}"]`).classList.add('active');
+            
             document.querySelectorAll('.step').forEach((s, i) => {
-                if(i + 1 < step) s.classList.add('completed');
-                else s.classList.remove('completed');
-                
-                if(i + 1 === step) s.classList.add('active');
-                else s.classList.remove('active');
+                s.classList.toggle('active', (i + 1) === step);
+                s.classList.toggle('completed', (i + 1) < step);
             });
+
+            prevBtn.style.display = step === 1 ? 'none' : 'inline-flex';
+            nextBtn.style.display = step === 4 ? 'none' : 'inline-flex';
+            submitBtn.style.display = step === 4 ? 'inline-flex' : 'none';
+            window.scrollTo(0,0);
         }
 
-        function validateStep(stepNum) {
-            const section = document.querySelector(`[data-section="${stepNum}"]`);
-            let valid = true;
+        function validate() {
+            const section = document.querySelector(`[data-section="${currentStep}"]`);
+            let isValid = true;
 
-            // Check Text inputs
+            // Text/TextArea
             section.querySelectorAll('input[required], textarea[required]').forEach(input => {
-                if(!input.value.trim()) {
+                const val = input.value.trim();
+                let fieldValid = true;
+
+                if (!val) fieldValid = false;
+                if (input.name === 'contact' && val.replace(/\D/g,'').length < 10) fieldValid = false;
+                if (input.name === 'pincode' && val.length !== 6) fieldValid = false;
+                if (input.name === 'education' && val.length < 2) fieldValid = false;
+
+                if (!fieldValid) {
                     input.classList.add('error');
-                    valid = false;
-                } else if (input.name === 'contact' && input.value.length < 10) {
-                    input.classList.add('error');
-                    valid = false;
-                } else if (input.name === 'pincode' && input.value.length < 6) {
-                    input.classList.add('error');
-                    valid = false;
+                    isValid = false;
                 } else {
                     input.classList.remove('error');
                 }
             });
 
-            // Check Radios
-            const radios = [...new Set([...section.querySelectorAll('input[type="radio"]')].map(r => r.name))];
-            radios.forEach(name => {
-                const checked = section.querySelector(`input[name="${name}"]:checked`);
-                const labels = section.querySelectorAll(`input[name="${name}"] ~ .radio-label`);
-                if(!checked && section.querySelector(`input[name="${name}"]`).hasAttribute('required')) {
-                    labels.forEach(l => l.classList.add('error-border'));
-                    valid = false;
-                } else {
-                    labels.forEach(l => l.classList.remove('error-border'));
+            // Radios & Checkboxes
+            ['gender', 'onlineTools', 'leadType', 'vehicle', 'contactsSaved', 'grades', 'subjects', 'boards', 'days'].forEach(name => {
+                const inputs = section.querySelectorAll(`input[name="${name}"]`);
+                if (inputs.length > 0) {
+                    const checked = section.querySelectorAll(`input[name="${name}"]:checked`);
+                    const labels = section.querySelectorAll(`input[name="${name}"] ~ label`);
+                    
+                    // Only validate if the field is in the current section
+                    if (checked.length === 0) {
+                        labels.forEach(l => l.classList.add('error-border'));
+                        isValid = false;
+                    } else {
+                        labels.forEach(l => l.classList.remove('error-border'));
+                    }
                 }
             });
 
-            // Check Checkboxes (at least one)
-            const checkboxes = [...new Set([...section.querySelectorAll('input[type="checkbox"]')].map(c => c.name))];
-            checkboxes.forEach(name => {
-                const checked = section.querySelectorAll(`input[name="${name}"]:checked`);
-                const labels = section.querySelectorAll(`input[name="${name}"] ~ .checkbox-label`);
-                if(checked.length === 0) {
-                    labels.forEach(l => l.classList.add('error-border'));
-                    valid = false;
-                } else {
-                    labels.forEach(l => l.classList.remove('error-border'));
-                }
-            });
-
-            if(!valid) {
+            if (!isValid) {
                 section.classList.add('shake');
                 setTimeout(() => section.classList.remove('shake'), 400);
             }
-            return valid;
+            return isValid;
         }
 
-        nextBtn.addEventListener('click', () => {
-            if(validateStep(currentStep)) {
-                document.querySelector(`[data-section="${currentStep}"]`).classList.remove('active');
-                currentStep++;
-                document.querySelector(`[data-section="${currentStep}"]`).classList.add('active');
-                updateSteps(currentStep);
-                
-                prevBtn.style.display = 'inline-flex';
-                if(currentStep === 4) {
-                    nextBtn.style.display = 'none';
-                    submitBtn.style.display = 'inline-flex';
-                }
-                window.scrollTo(0,0);
-            }
-        });
+        nextBtn.addEventListener('click', () => { if(validate()){ currentStep++; showStep(currentStep); }});
+        prevBtn.addEventListener('click', () => { currentStep--; showStep(currentStep); });
 
-        prevBtn.addEventListener('click', () => {
-            document.querySelector(`[data-section="${currentStep}"]`).classList.remove('active');
-            currentStep--;
-            document.querySelector(`[data-section="${currentStep}"]`).classList.add('active');
-            updateSteps(currentStep);
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            if(!validate()) return;
 
-            submitBtn.style.display = 'none';
-            nextBtn.style.display = 'inline-flex';
-            if(currentStep === 1) prevBtn.style.display = 'none';
-            window.scrollTo(0,0);
-        });
-
-        form.addEventListener('submit', function(e) {
-            if(!validateStep(4)) {
-                e.preventDefault();
-                return;
-            }
-
-            // Show Loading
             form.style.display = 'none';
-            document.getElementById('loading').style.display = 'block';
+            document.getElementById('loading').classList.add('show');
 
-            // Create a temporary form to submit to the iframe
             const tempForm = document.createElement('form');
             tempForm.action = FORM_URL;
             tempForm.method = 'POST';
@@ -429,7 +453,7 @@
 
             const formData = new FormData(form);
             for (let [key, value] of formData.entries()) {
-                if(FIELD_MAP[key]) {
+                if (FIELD_MAP[key]) {
                     const input = document.createElement('input');
                     input.type = 'hidden';
                     input.name = FIELD_MAP[key];
@@ -441,13 +465,15 @@
             document.body.appendChild(tempForm);
             tempForm.submit();
 
-            // Handle success
-            document.getElementById('hidden_iframe').onload = function() {
-                document.getElementById('loading').style.display = 'none';
-                document.getElementById('successMessage').style.display = 'block';
-                updateSteps(5); // Highlight all
-            };
+            // Success trigger
+            setTimeout(() => {
+                document.getElementById('loading').classList.remove('show');
+                document.getElementById('successMessage').classList.add('show');
+                document.body.removeChild(tempForm);
+            }, 1500);
         });
+
+        showStep(1);
     </script>
 </body>
 </html>
