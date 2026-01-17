@@ -1194,13 +1194,13 @@
 
             // Text input validation
             if (input.type === 'text' || input.type === 'tel' || input.tagName === 'TEXTAREA') {
-                if (!value) {
-                    isValid = false;
-                    errorMessage = `This field is required`;
-                } else if (input.minLength && value.length < input.minLength) {
-                    isValid = false;
-                    errorMessage = `Minimum ${input.minLength} characters required`;
-                } else if (input.pattern) {
+    if (!value) {
+        isValid = false;
+        errorMessage = `This field is required`;
+    } else if (input.minLength && input.minLength > 1 && value.length < input.minLength) {
+        isValid = false;
+        errorMessage = `Minimum ${input.minLength} characters required`;
+    } else if (input.pattern) {
                     const regex = new RegExp(input.pattern);
                     if (!regex.test(value)) {
                         isValid = false;
