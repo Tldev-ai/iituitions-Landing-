@@ -680,7 +680,7 @@
                         <label class="form-label">
                             Complete Address <span class="required">*</span>
                         </label>
-                        <textarea name="address" class="form-textarea" placeholder="Example: Flat 301, Maple Apartments, Near Kukatpally Metro Station, KPHB Colony, Hyderabad" required minlength="1"></textarea>
+                        <textarea name="address" class="form-textarea" placeholder="Example: Flat 301, Maple Apartments, Near Kukatpally Metro Station, KPHB Colony, Hyderabad" required></textarea>
                         <div class="form-hint">⚠️ IMPORTANT: Include flat/house number, building/colony name, nearby landmark, and area. This helps us send you student leads from your neighborhood.</div>
                     </div>
 
@@ -871,7 +871,7 @@
                         <label class="form-label">
                             Teaching Experience <span class="required">*</span>
                         </label>
-                        <textarea name="experience" class="form-textarea" placeholder="Include home tutoring and coaching experience" required minlength="1"></textarea>
+                        <textarea name="experience" class="form-textarea" placeholder="Include home tutoring and coaching experience" required></textarea>
                     </div>
                 </div>
 
@@ -1000,7 +1000,7 @@
                                 <label for="savedLater" class="radio-label">Will save now</label>
                             </div>
                         </div>
-                        <div class="form-hint">Save: 8639221271 & 7680012036 - When a student lead matching your profile comes, we'll send it to you immediately via broadcast</div>
+                        <div class="form-hint">Save: 8639221271 & 7680012036</div>
                     </div>
                 </div>
 
@@ -1040,10 +1040,10 @@
     </div>
 
     <script>
-        // Google Form submission configuration - EXACT SAME AS WORKING VERSION
+        // Google Form submission configuration
         const GOOGLE_FORM_URL = 'https://docs.google.com/forms/u/0/d/e/1FAIpQLSdMm8gnXXYz3EebMivBnZnVfvwBlqyiU2IOmWIujhbnxv9TUg/formResponse';
         
-        // Field mapping - EXACT entry IDs - DO NOT CHANGE
+        // Field mapping - extracted from your Google Form
         const FIELD_MAPPING = {
             fullName: 'entry.964228262',      // Faculty Full Name
             contact: 'entry.1990109450',      // Contact numbers
@@ -1144,7 +1144,7 @@
             showStep(currentStep);
         });
 
-        // Form submission - EXACT SAME AS WORKING VERSION
+        // Form submission
         form.addEventListener('submit', async (e) => {
             e.preventDefault();
 
@@ -1218,6 +1218,7 @@
             console.log('===========================================');
             console.log('Form URL:', GOOGLE_FORM_URL);
             console.log('Total inputs:', submitForm.querySelectorAll('input').length);
+            console.log('Form HTML:', submitForm.innerHTML.substring(0, 500) + '...');
             console.log('===========================================');
             
             // Handle iframe load event
@@ -1260,3 +1261,4 @@
     </script>
 </body>
 </html>
+
