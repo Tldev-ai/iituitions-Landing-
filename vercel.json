@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/mentorship",
+      "destination": "https://mentorship-blue-gamma.vercel.app"
+    }
+  ]
+}
